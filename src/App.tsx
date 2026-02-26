@@ -11,7 +11,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BoutonWhatsApp from './components/BoutonWhatsApp';
 import GeometricMotifs from './components/GeometricMotifs';
-import CircleMotifBackground from './components/CircleMotifBackground';
 
 const SECTION_IDS = ['accueil', 'experiences', 'projets', 'competences', 'formation', 'contact'];
 
@@ -55,20 +54,21 @@ function App() {
   return (
     <>
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
-      <div className="min-h-screen bg-white text-stone-800 overflow-x-hidden bg-animated-mesh relative">
-        <div className="absolute inset-0 bg-pattern-dots-animated opacity-40 pointer-events-none" aria-hidden />
-        <CircleMotifBackground />
-        <GeometricMotifs />
-        <Header scrollY={scrollY} activeSection={activeSection} />
-        <Hero scrollY={scrollY} />
-        <Apropos />
-        <Experiences />
-        <Projets />
-        <Competences />
-        <Formation />
-        <Contact />
-        <Footer />
-        <BoutonWhatsApp />
+      <div className="min-h-screen bg-white text-stone-800 bg-mesh-static relative">
+        <Header scrollY={scrollY} activeSection={activeSection} isVisible={!showSplash} />
+        <div className="overflow-x-hidden relative">
+          <div className="absolute inset-0 bg-pattern-dots opacity-40 pointer-events-none" aria-hidden />
+          <GeometricMotifs />
+          <Hero scrollY={scrollY} />
+          <Apropos />
+          <Experiences />
+          <Projets />
+          <Competences />
+          <Formation />
+          <Contact />
+          <Footer />
+          <BoutonWhatsApp />
+        </div>
       </div>
     </>
   );

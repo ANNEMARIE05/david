@@ -1,19 +1,21 @@
 import { Mail, Phone, Linkedin, CalendarDays, Briefcase, FolderKanban } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 import { useInView } from '../hooks/useInView';
 import { useCountUp } from '../hooks/useCountUp';
 
-const CONTACT_ITEMS = [
-  { Icon: Mail, label: 'Email', value: 'nguessanamsah98@gmail.com', href: 'mailto:nguessanamsah98@gmail.com' },
-  { Icon: Phone, label: 'Téléphone', value: '+225 07 11 46 14 80', href: 'tel:+2250711461480' },
-  { Icon: Linkedin, label: 'LinkedIn', value: "Amsah David-Alexandre N'Guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-nguessan/', external: true },
-  { Icon: CalendarDays, label: 'Âge', value: '28 ans', href: undefined },
-] as const;
-
 export default function Apropos() {
+  const { t } = useTranslation();
   const { ref: statsRef, isInView } = useInView({ threshold: 0.2 });
   const countExp = useCountUp(5, 1200, isInView);
   const countProjets = useCountUp(6, 1200, isInView);
+
+  const CONTACT_ITEMS = [
+    { Icon: Mail, labelKey: 'about.labels.email', value: 'nguessanamsah98@gmail.com', href: 'mailto:nguessanamsah98@gmail.com' },
+    { Icon: Phone, labelKey: 'about.labels.phone', value: '+225 07 11 46 14 80', href: 'tel:+2250711461480' },
+    { Icon: Linkedin, labelKey: 'contact.labels.linkedin', value: "Amsah David-Alexandre N'Guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-nguessan/', external: true },
+    { Icon: CalendarDays, labelKey: 'about.labels.age', value: t('about.labels.ageValue'), href: undefined },
+  ] as const;
 
   return (
     <section className="relative py-12 sm:py-16 md:py-24 lg:py-28 border-t border-stone-100 overflow-hidden">
@@ -34,7 +36,7 @@ export default function Apropos() {
                   </div>
                   <div>
                     <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 tabular-nums">{countExp}+</span>
-                    <span className="text-stone-600 text-xs sm:text-sm font-medium">ans d'expérience</span>
+                    <span className="text-stone-600 text-xs sm:text-sm font-medium">{t('about.yearsExp')}</span>
                   </div>
                 </div>
               </div>
@@ -48,7 +50,7 @@ export default function Apropos() {
                   </div>
                   <div>
                     <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 tabular-nums">{countProjets}+</span>
-                    <span className="text-stone-600 text-xs sm:text-sm font-medium">projets pilotés</span>
+                    <span className="text-stone-600 text-xs sm:text-sm font-medium">{t('about.projectsLed')}</span>
                   </div>
                 </div>
               </div>
@@ -58,8 +60,8 @@ export default function Apropos() {
           <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-16 items-start">
             {/* Bloc contact – liens cliquables */}
             <div className="space-y-2 sm:space-y-3">
-              {CONTACT_ITEMS.map(({ Icon, label, value, href, external }, i) => (
-                <AnimateOnScroll key={label} variant="slide-right" delay={i as 0 | 1 | 2}>
+              {CONTACT_ITEMS.map(({ Icon, labelKey, value, href, external }, i) => (
+                <AnimateOnScroll key={labelKey} variant="slide-right" delay={i as 0 | 1 | 2}>
                   {href ? (
                     <a
                       href={href}
@@ -71,7 +73,7 @@ export default function Apropos() {
                         <Icon className="text-white" size={20} />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-stone-500 text-[10px] sm:text-xs uppercase tracking-wider font-medium">{label}</p>
+                        <p className="text-stone-500 text-[10px] sm:text-xs uppercase tracking-wider font-medium">{t(labelKey)}</p>
                         <p className="text-stone-800 font-semibold text-sm sm:text-base truncate">{value}</p>
                       </div>
                     </a>
@@ -81,7 +83,7 @@ export default function Apropos() {
                         <Icon className="text-white" size={20} />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-stone-500 text-[10px] sm:text-xs uppercase tracking-wider font-medium">{label}</p>
+                        <p className="text-stone-500 text-[10px] sm:text-xs uppercase tracking-wider font-medium">{t(labelKey)}</p>
                         <p className="text-stone-800 font-semibold text-sm sm:text-base">{value}</p>
                       </div>
                     </div>
@@ -94,26 +96,24 @@ export default function Apropos() {
             <div className="space-y-4 sm:space-y-5">
               <AnimateOnScroll variant="flip">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
-                  <span className="text-stone-800">À Propos </span>
-                  <span className="text-orange-500">De Moi</span>
+                  <span className="text-stone-800">{t('about.title')} </span>
+                  <span className="text-orange-500">{t('about.titleHighlight')}</span>
                 </h2>
               </AnimateOnScroll>
               <div className="space-y-3 sm:space-y-4 text-stone-600 leading-relaxed text-sm sm:text-base">
                 <AnimateOnScroll variant="fade-in" delay={0}>
                   <p>
-                    Product Manager passionné avec plus de <span className="text-orange-500 font-semibold">5 ans d'expérience</span> dans la gestion de produits digitaux et la transformation numérique.
+                    {t('about.paragraph1', { count: 5 })}
                   </p>
                 </AnimateOnScroll>
                 <AnimateOnScroll variant="fade-in" delay={1}>
                   <p>
-                    Spécialisé dans le développement de solutions de <span className="text-orange-500 font-semibold">paiement électronique</span>,
-                    l'optimisation de plateformes e-commerce et la stratégie digitale.
+                    {t('about.paragraph2')}
                   </p>
                 </AnimateOnScroll>
                 <AnimateOnScroll variant="fade-in" delay={2}>
                   <p>
-                    Expert en monétique, j'ai piloté des projets stratégiques pour des institutions majeures,
-                    créant des solutions innovantes qui transforment l'expérience utilisateur et génèrent des résultats mesurables.
+                    {t('about.paragraph3')}
                   </p>
                 </AnimateOnScroll>
               </div>

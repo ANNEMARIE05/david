@@ -1,34 +1,77 @@
-import { Menu, X, Download } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Menu, X, Download, ChevronDown } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderProps {
   scrollY: number;
   activeSection: string;
+  isVisible?: boolean;
 }
 
-export default function Header({ scrollY, activeSection }: HeaderProps) {
+export default function Header({ scrollY, activeSection, isVisible = true }: HeaderProps) {
+  const { t, i18n } = useTranslation();
   const [menuOuvert, setMenuOuvert] = useState(false);
   const [navAnimated, setNavAnimated] = useState(false);
+  const [entranceDone, setEntranceDone] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setNavAnimated(true), 100);
-    return () => clearTimeout(t);
+    const timeout = setTimeout(() => setNavAnimated(true), 100);
+    return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    if (isVisible) {
+      const t = setTimeout(() => setEntranceDone(true), 50);
+      return () => clearTimeout(t);
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    const fallback = setTimeout(() => setEntranceDone(true), 2000);
+    return () => clearTimeout(fallback);
+  }, []);
+
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
+
+  const languages = [
+    { code: 'fr' as const, labelKey: 'lang.french', flagSrc: '/flags/fr.svg' },
+    { code: 'en' as const, labelKey: 'lang.english', flagSrc: '/flags/gb.svg' },
+  ];
+  const currentLang = languages.find((l) => l.code === (i18n.language?.slice(0, 2) ?? 'fr')) ?? languages[0];
+
+  const changeLanguage = (lng: 'fr' | 'en') => {
+    i18n.changeLanguage(lng);
+    if (typeof window !== 'undefined') localStorage.setItem('lang', lng);
+    setLangDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(e.target as Node)) {
+        setLangDropdownOpen(false);
+      }
+    };
+    if (langDropdownOpen) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [langDropdownOpen]);
+
   const liens = [
-    { nom: 'Accueil', href: '#accueil', id: 'accueil' },
-    { nom: 'Expériences', href: '#experiences', id: 'experiences' },
-    { nom: 'Projets', href: '#projets', id: 'projets' },
-    { nom: 'Compétences', href: '#competences', id: 'competences' },
-    { nom: 'Formation', href: '#formation', id: 'formation' },
-    { nom: 'Contact', href: '#contact', id: 'contact' },
+    { nomKey: 'nav.accueil', href: '#accueil', id: 'accueil' },
+    { nomKey: 'nav.experiences', href: '#experiences', id: 'experiences' },
+    { nomKey: 'nav.projets', href: '#projets', id: 'projets' },
+    { nomKey: 'nav.competences', href: '#competences', id: 'competences' },
+    { nomKey: 'nav.formation', href: '#formation', id: 'formation' },
+    { nomKey: 'nav.contact', href: '#contact', id: 'contact' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        scrollY > 30 ? 'bg-white border-b border-stone-200 shadow-sm' : 'bg-white'
-      }`}
+      className={`sticky top-0 left-0 right-0 z-[100] w-full transition-all duration-300 header-entrance ${
+        entranceDone ? 'header-entrance-done' : ''
+      } ${scrollY > 30 ? 'bg-white border-b border-stone-200 shadow-sm' : 'bg-white'}`}
     >
       <nav className="w-full px-6 sm:px-10 lg:px-16">
         <div className="flex items-center justify-between min-h-[4.5rem] py-4 gap-6">
@@ -36,7 +79,7 @@ export default function Header({ scrollY, activeSection }: HeaderProps) {
           <a
             href="#accueil"
             className="flex items-center gap-2.5 shrink-0 group"
-            aria-label="Accueil"
+            aria-label={t('nav.home')}
           >
             <img
               src="/logo.svg"
@@ -67,21 +110,78 @@ export default function Header({ scrollY, activeSection }: HeaderProps) {
                   }`}
                   style={{ animationDelay: `${i * 0.05}s` }}
                 >
-                  {lien.nom}
+                  {t(lien.nomKey)}
                 </a>
               );
             })}
           </div>
 
-          {/* Zone droite : CTA + menu mobile */}
-          <div className="flex items-center gap-4 lg:gap-6 shrink-0">
+          {/* Zone droite : sélecteur de langue (dropdown) + CTA + menu mobile */}
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 shrink-0">
+            <div className="relative" ref={langDropdownRef}>
+              <button
+                type="button"
+                onClick={() => setLangDropdownOpen((o) => !o)}
+                className="flex items-center gap-2.5 px-3 py-2 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-sm font-medium transition-colors min-w-[8rem] justify-between"
+                aria-label={t(currentLang.labelKey)}
+                aria-expanded={langDropdownOpen}
+                aria-haspopup="listbox"
+              >
+                <span className="flex items-center gap-2">
+                  <img
+                    src={currentLang.flagSrc}
+                    alt=""
+                    className="w-6 h-6 rounded object-cover flex-shrink-0 border border-stone-200"
+                    width={24}
+                    height={24}
+                    aria-hidden
+                  />
+                  <span>{t(currentLang.labelKey)}</span>
+                </span>
+                <ChevronDown
+                  size={16}
+                  className={`text-stone-500 transition-transform flex-shrink-0 ${langDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {langDropdownOpen && (
+                <div
+                  className="absolute top-full right-0 mt-1.5 py-1.5 min-w-[8rem] bg-white rounded-lg border border-stone-200 shadow-lg z-50"
+                  role="listbox"
+                >
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      type="button"
+                      role="option"
+                      aria-selected={currentLang.code === lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-left transition-colors first:rounded-t-md last:rounded-b-md ${
+                        currentLang.code === lang.code
+                          ? 'bg-orange-50 text-orange-600 font-medium'
+                          : 'text-stone-700 hover:bg-stone-50'
+                      }`}
+                    >
+                      <img
+                        src={lang.flagSrc}
+                        alt=""
+                        className="w-6 h-6 rounded object-cover flex-shrink-0 border border-stone-200"
+                        width={24}
+                        height={24}
+                        aria-hidden
+                      />
+                      <span>{t(lang.labelKey)}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             <a
               href="/cv.pdf"
               download
               className="hidden sm:inline-flex items-center gap-2.5 px-5 py-2.5 lg:px-6 lg:py-3 bg-orange-500 text-white text-sm font-medium hover:bg-orange-600 transition-colors duration-200 rounded-lg"
             >
               <Download size={17} />
-              Télécharger le CV
+              {t('nav.downloadCv')}
             </a>
             <button
               className="md:hidden p-2.5 text-stone-600 hover:text-stone-900 rounded-lg hover:bg-stone-100 transition-colors"
@@ -104,7 +204,7 @@ export default function Header({ scrollY, activeSection }: HeaderProps) {
                   activeSection === lien.id ? 'text-orange-500 bg-orange-50' : 'text-stone-600 hover:bg-stone-50'
                 }`}
               >
-                {lien.nom}
+                {t(lien.nomKey)}
               </a>
             ))}
             <a
@@ -114,7 +214,7 @@ export default function Header({ scrollY, activeSection }: HeaderProps) {
               onClick={() => setMenuOuvert(false)}
             >
               <Download size={17} />
-              Télécharger le CV
+              {t('nav.downloadCv')}
             </a>
           </div>
         )}

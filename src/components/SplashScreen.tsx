@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const DURATION_MS = 3200;
 const LETTERS = ['D', 'A', 'V', 'I', 'D'];
 
 export default function SplashScreen({ onComplete }: { onComplete: () => void }) {
+  const { t } = useTranslation();
   const [exiting, setExiting] = useState(false);
   const [visibleLetters, setVisibleLetters] = useState(0);
 
@@ -79,7 +81,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
             transition: 'opacity 0.6s ease 0.3s',
           }}
         >
-          Portfolio
+          {t('splash.subtitle')}
         </p>
       </div>
 

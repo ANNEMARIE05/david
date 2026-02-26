@@ -1,48 +1,34 @@
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 
-interface Formation {
+const FORMATION_IMAGES = [
+  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80',
+  'https://images.unsplash.com/photo-1481627834876-8a164511e8fa?w=600&q=80',
+  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80',
+];
+
+const INTEREST_IMAGES = [
+  'https://images.unsplash.com/photo-1478737270231-2f0af8e62bfe?w=400&q=80',
+  'https://images.unsplash.com/photo-1546519638-69e1094983cd?w=400&q=80',
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+  'https://images.unsplash.com/photo-1503095396549-807687544591?w=400&q=80',
+];
+
+interface FormationItem {
   diplome: string;
   ecole: string;
   periode: string;
   lieu: string;
   specialite?: string;
-  image: string;
 }
 
 export default function Formation() {
-  const formations: Formation[] = [
-    {
-      diplome: 'Master en Marketing Digital et Stratégie Numérique',
-      ecole: 'ESTEM',
-      periode: '2019 – 2021',
-      lieu: 'Casablanca, Maroc',
-      specialite: 'Digital Marketing & Strategy',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80'
-    },
-    {
-      diplome: 'Licence en Sciences de Gestion',
-      ecole: 'ESTEM',
-      periode: '2016 – 2019',
-      lieu: 'Casablanca, Maroc',
-      specialite: 'Management & Gestion',
-      image: 'https://images.unsplash.com/photo-1481627834876-8a164511e8fa?w=600&q=80'
-    },
-    {
-      diplome: 'Baccalauréat Littéraire (A2)',
-      ecole: 'Collège Prospère Mérimée',
-      periode: '2015 – 2016',
-      lieu: 'Côte d\'Ivoire',
-      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80'
-    }
-  ];
-
-  const interets = [
-    { nom: 'Podcast', image: 'https://images.unsplash.com/photo-1478737270231-2f0af8e62bfe?w=400&q=80' },
-    { nom: 'Basket-ball', image: 'https://images.unsplash.com/photo-1546519638-69e1094983cd?w=400&q=80' },
-    { nom: 'Lecture', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80' },
-    { nom: 'Théâtre', image: 'https://images.unsplash.com/photo-1503095396549-807687544591?w=400&q=80' }
-  ];
+  const { t } = useTranslation();
+  const items = t('formation.items', { returnObjects: true }) as FormationItem[];
+  const formations = items.map((item, i) => ({ ...item, image: FORMATION_IMAGES[i] ?? '' }));
+  const interestNames = t('formation.interests', { returnObjects: true }) as string[];
+  const interets = interestNames.map((nom, i) => ({ nom, image: INTEREST_IMAGES[i] ?? '' }));
 
   return (
     <section id="formation" className="py-10 sm:py-14 md:py-20 lg:py-28 border-t border-stone-100 bg-stone-50/50">
@@ -50,10 +36,10 @@ export default function Formation() {
         <div className="max-w-5xl mx-auto">
           <AnimateOnScroll>
             <div className="text-center mb-8 sm:mb-12 md:mb-16">
-              <span className="text-orange-500 text-xs sm:text-sm font-medium uppercase tracking-widest">Parcours</span>
+              <span className="text-orange-500 text-xs sm:text-sm font-medium uppercase tracking-widest">{t('formation.pathway')}</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-1 sm:mt-2">
-                <span className="text-stone-800">Formation </span>
-                <span className="text-orange-500">& Intérêts</span>
+                <span className="text-stone-800">{t('formation.title')} </span>
+                <span className="text-orange-500">& {t('formation.titleHighlight')}</span>
               </h2>
             </div>
           </AnimateOnScroll>
@@ -68,7 +54,7 @@ export default function Formation() {
                   } md:items-center`}
                 >
                   <div className="md:w-[45%] flex-shrink-0">
-                    <div className={`relative aspect-[4/3] md:aspect-[3/4] overflow-hidden shadow-lg ${[ 'card-img-quasi-br', 'card-img-quasi-tr', 'card-img-quasi-bl' ][index % 3]}`}>
+                    <div className="relative aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-lg shadow-lg">
                       <img
                         src={formation.image}
                         alt={formation.ecole}
@@ -115,21 +101,21 @@ export default function Formation() {
             <div className="mt-10 sm:mt-14 md:mt-20 pt-8 sm:pt-12 md:pt-16 border-t border-stone-200">
               <AnimateOnScroll variant="slide-right">
                 <h3 className="text-lg sm:text-xl font-bold text-stone-800 mb-1 sm:mb-2">
-                  Centres d'<span className="text-orange-500">Intérêt</span>
+                  {t('formation.interestsTitle')}<span className="text-orange-500">{t('formation.interestsTitleHighlight')}</span>
                 </h3>
               </AnimateOnScroll>
               <AnimateOnScroll variant="slide-left" delay={1}>
                 <p className="text-stone-600 text-xs sm:text-sm mb-4 sm:mb-6 md:mb-8 max-w-md">
-                  Au-delà du digital, des passions qui nourrissent ma créativité et mon équilibre.
+                  {t('formation.interestsSubtitle')}
                 </p>
               </AnimateOnScroll>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
                 {interets.map((interet, i) => (
                   <AnimateOnScroll key={interet.nom} variant="zoom-in" delay={(i % 4) as 0 | 1 | 2 | 3}>
                     <div
-                      className={`group formation-card-hover relative aspect-[3/4] overflow-hidden border border-stone-200 bg-white shadow-sm hover:border-orange-200 ${[ 'card-border-sharp', 'card-border-round-tr', 'card-border-round-br', 'card-border-round-bl' ][i % 4]}`}
+                      className="group formation-card-hover relative aspect-[3/4] overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm hover:border-orange-200"
                     >
-                    <div className={`absolute inset-0 overflow-hidden ${[ 'card-img-quasi-tr', 'card-img-quasi-br', 'card-img-quasi-bl', 'card-img-quasi-tl' ][i % 4]}`}>
+                    <div className="absolute inset-0 overflow-hidden rounded-lg">
                     <img
                       src={interet.image}
                       alt={interet.nom}

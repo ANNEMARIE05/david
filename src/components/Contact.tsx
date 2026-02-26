@@ -1,8 +1,10 @@
 import { Mail, Phone, Linkedin, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     nom: '',
     email: '',
@@ -17,10 +19,10 @@ export default function Contact() {
   };
 
   const contactItems = [
-    { Icon: Mail, label: 'Email', value: 'nguessanamsah98@gmail.com', href: 'mailto:nguessanamsah98@gmail.com' },
-    { Icon: Phone, label: 'Téléphone', value: '+225 07 11 46 14 80', href: 'tel:+2250711461480' },
-    { Icon: Linkedin, label: 'LinkedIn', value: "amsah david-alexandre n'guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-nguessan' },
-    { Icon: MapPin, label: 'Localisation', value: 'Abidjan, Côte d\'Ivoire', href: null as string | null },
+    { Icon: Mail, labelKey: 'contact.labels.email', value: 'nguessanamsah98@gmail.com', href: 'mailto:nguessanamsah98@gmail.com' },
+    { Icon: Phone, labelKey: 'contact.labels.phone', value: '+225 07 11 46 14 80', href: 'tel:+2250711461480' },
+    { Icon: Linkedin, labelKey: 'contact.labels.linkedin', value: "amsah david-alexandre n'guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-nguessan' },
+    { Icon: MapPin, labelKey: 'contact.labels.location', value: t('contact.locationValue'), href: null as string | null },
   ];
 
   return (
@@ -29,11 +31,11 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto">
           <AnimateOnScroll variant="fade-down">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">
-              <span className="text-stone-800">Travaillons </span>
-              <span className="text-orange-500">Ensemble</span>
+              <span className="text-stone-800">{t('contact.title')} </span>
+              <span className="text-orange-500">{t('contact.titleHighlight')}</span>
             </h2>
             <p className="text-stone-700 text-xs sm:text-sm mb-6 sm:mb-10 max-w-xl">
-              Vous avez un projet en tête ? Discutons de comment je peux vous aider à le concrétiser.
+              {t('contact.subtitle')}
             </p>
           </AnimateOnScroll>
 
@@ -41,7 +43,7 @@ export default function Contact() {
             <div className="space-y-3 sm:space-y-4">
               <AnimateOnScroll variant="fade-up">
                 <h3 className="text-lg sm:text-xl font-bold text-stone-800 mb-2 sm:mb-4">
-                  Informations de <span className="text-orange-500">Contact</span>
+                  {t('contact.infoTitle')} <span className="text-orange-500">{t('contact.infoTitleHighlight')}</span>
                 </h3>
               </AnimateOnScroll>
 
@@ -52,13 +54,13 @@ export default function Contact() {
                       <item.Icon className="text-white" size={18} />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-stone-600 text-[10px] sm:text-xs uppercase tracking-wider">{item.label}</p>
+                      <p className="text-stone-600 text-[10px] sm:text-xs uppercase tracking-wider">{t(item.labelKey)}</p>
                       <p className="text-stone-800 font-semibold text-sm sm:text-base truncate">{item.value}</p>
                     </div>
                   </>
                 );
                     return (
-                  <AnimateOnScroll key={item.label} variant="slide-right" delay={i as 0 | 1 | 2}>
+                  <AnimateOnScroll key={item.labelKey} variant="slide-right" delay={i as 0 | 1 | 2}>
                     {item.href ? (
                       <a
                         href={item.href}
@@ -79,9 +81,9 @@ export default function Contact() {
 
               <AnimateOnScroll variant="fade-up" delay={2}>
                 <div className="p-3 sm:p-4 md:p-5 rounded-lg bg-orange-500 text-white border border-orange-500">
-                  <p className="font-semibold text-sm sm:text-base mb-0.5 sm:mb-1">Disponibilité</p>
+                  <p className="font-semibold text-sm sm:text-base mb-0.5 sm:mb-1">{t('contact.availability')}</p>
                   <p className="text-white/95 text-xs sm:text-sm">
-                    Actuellement ouvert à de nouvelles opportunités professionnelles et collaborations freelance.
+                    {t('contact.availabilityText')}
                   </p>
                 </div>
               </AnimateOnScroll>
@@ -91,7 +93,7 @@ export default function Contact() {
               <div className="p-4 sm:p-5 md:p-6 rounded-lg border border-stone-200 bg-white shadow-sm hover-glow transition-shadow">
                 <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-5">
                   <div>
-                    <label htmlFor="nom" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">Nom complet</label>
+                    <label htmlFor="nom" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">{t('contact.form.name')}</label>
                     <input
                       type="text"
                       id="nom"
@@ -99,11 +101,11 @@ export default function Contact() {
                       value={formData.nom}
                       onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
                       className="w-full px-3 py-2.5 sm:px-4 sm:py-3 bg-stone-50 border border-stone-200 rounded-lg text-stone-800 text-sm sm:text-base focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300"
-                      placeholder="Votre nom"
+                      placeholder={t('contact.form.namePlaceholder')}
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">Email</label>
+                    <label htmlFor="email" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">{t('contact.form.email')}</label>
                     <input
                       type="email"
                       id="email"
@@ -111,11 +113,11 @@ export default function Contact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-3 py-2.5 sm:px-4 sm:py-3 bg-stone-50 border border-stone-200 rounded-lg text-stone-800 text-sm sm:text-base focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300"
-                      placeholder="votre@email.com"
+                      placeholder={t('contact.form.emailPlaceholder')}
                     />
                   </div>
                   <div>
-                    <label htmlFor="sujet" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">Sujet</label>
+                    <label htmlFor="sujet" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">{t('contact.form.subject')}</label>
                     <input
                       type="text"
                       id="sujet"
@@ -123,11 +125,11 @@ export default function Contact() {
                       value={formData.sujet}
                       onChange={(e) => setFormData({ ...formData, sujet: e.target.value })}
                       className="w-full px-3 py-2.5 sm:px-4 sm:py-3 bg-stone-50 border border-stone-200 rounded-lg text-stone-800 text-sm sm:text-base focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300"
-                      placeholder="Objet de votre message"
+                      placeholder={t('contact.form.subjectPlaceholder')}
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">Message</label>
+                    <label htmlFor="message" className="block text-stone-800 font-semibold text-sm sm:text-base mb-1 sm:mb-1.5">{t('contact.form.message')}</label>
                     <textarea
                       id="message"
                       required
@@ -135,7 +137,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-3 py-2.5 sm:px-4 sm:py-3 bg-stone-50 border border-stone-200 rounded-lg text-stone-800 text-sm sm:text-base focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 focus:outline-none transition-all duration-300 resize-none"
-                      placeholder="Votre message..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                     />
                   </div>
                   <button
@@ -143,7 +145,7 @@ export default function Contact() {
                     className="w-full px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg bg-orange-500 text-white font-medium text-xs sm:text-sm hover:bg-orange-600 hover-lift btn-pulse transition-all flex items-center justify-center gap-2"
                   >
                     <Send size={18} />
-                    Envoyer le message
+                    {t('contact.form.submit')}
                   </button>
                 </form>
               </div>

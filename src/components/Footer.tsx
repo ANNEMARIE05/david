@@ -1,14 +1,16 @@
 import { Mail, Phone, Linkedin, MapPin, ChevronUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 
 export default function Footer() {
+  const { t } = useTranslation();
   const links = [
-    { label: 'Accueil', href: '#accueil' },
-    { label: 'Expériences', href: '#experiences' },
-    { label: 'Projets', href: '#projets' },
-    { label: 'Compétences', href: '#competences' },
-    { label: 'Formation', href: '#formation' },
-    { label: 'Contact', href: '#contact' },
+    { labelKey: 'nav.accueil', href: '#accueil' },
+    { labelKey: 'nav.experiences', href: '#experiences' },
+    { labelKey: 'nav.projets', href: '#projets' },
+    { labelKey: 'nav.competences', href: '#competences' },
+    { labelKey: 'nav.formation', href: '#formation' },
+    { labelKey: 'nav.contact', href: '#contact' },
   ];
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -33,16 +35,16 @@ export default function Footer() {
                 </span>
               </a>
               <p className="text-xs sm:text-sm leading-relaxed text-stone-400 max-w-sm">
-                Product Manager & Expert e-Commerce. Spécialiste monétique et stratégie digitale.
+                {t('footer.tagline')}
               </p>
               <p className="mt-2 sm:mt-4 text-xs sm:text-sm leading-relaxed text-stone-400 max-w-sm">
-                Ouvert aux opportunités et collaborations freelance.
+                {t('footer.openTo')}
               </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll variant="fade-up" delay={1} className="lg:col-span-3">
               <h3 className="text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-5 text-stone-200">
-                Navigation
+                {t('footer.navigation')}
               </h3>
               <ul className="space-y-2 sm:space-y-3">
                 {links.map((link, i) => (
@@ -52,7 +54,7 @@ export default function Footer() {
                         href={link.href}
                         className="text-xs sm:text-sm hover:text-orange-400 transition-colors inline-block hover:translate-x-1 duration-200"
                       >
-                        {link.label}
+                        {t(link.labelKey)}
                       </a>
                     </AnimateOnScroll>
                   </li>
@@ -62,7 +64,7 @@ export default function Footer() {
 
             <AnimateOnScroll variant="fade-up" delay={2} className="lg:col-span-4">
               <h3 className="text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-5 text-stone-200">
-                Contact
+                {t('footer.contactTitle')}
               </h3>
               <ul className="space-y-2 sm:space-y-4 text-xs sm:text-sm">
                 <li>
@@ -119,15 +121,15 @@ export default function Footer() {
         <AnimateOnScroll variant="fade-in">
           <div className="w-full px-4 sm:px-6 lg:px-16 py-3 sm:py-4">
             <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-xs sm:text-sm text-stone-500 text-center sm:text-left">
-              <p>© {new Date().getFullYear()} N'GUESSAN AMSAH DAVID-ALEXANDRE. Tous droits réservés.</p>
+              <p>© {new Date().getFullYear()} N'GUESSAN AMSAH DAVID-ALEXANDRE. {t('footer.rights')}</p>
               <button
                 type="button"
                 onClick={scrollToTop}
                 className="inline-flex items-center gap-1.5 text-stone-400 hover:text-orange-400 transition-colors hover:translate-y-[-2px] duration-200"
-                aria-label="Retour en haut"
+                aria-label={t('footer.backToTop')}
               >
                 <ChevronUp size={18} />
-                Retour en haut
+                {t('footer.backToTop')}
               </button>
             </div>
           </div>

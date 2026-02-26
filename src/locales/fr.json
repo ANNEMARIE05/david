@@ -1,0 +1,273 @@
+{
+  "lang": {
+    "french": "Français",
+    "english": "Anglais"
+  },
+  "nav": {
+    "accueil": "Accueil",
+    "experiences": "Expériences",
+    "projets": "Projets",
+    "competences": "Compétences",
+    "formation": "Formation",
+    "contact": "Contact",
+    "downloadCv": "Télécharger le CV",
+    "home": "Accueil"
+  },
+  "hero": {
+    "hello": "Bonjour, je suis",
+    "subtitle": "Product Manager · e-Commerce · Stratégie digitale",
+    "bio": "Spécialiste de la transformation digitale et du développement de produits innovants, avec une expertise en monétique et paiements électroniques.",
+    "yearsExp": "ans d'expérience",
+    "keyProjects": "projets clés",
+    "cta": "Découvrir mes projets"
+  },
+  "about": {
+    "title": "À Propos",
+    "titleHighlight": "De Moi",
+    "yearsExp": "ans d'expérience",
+    "projectsLed": "projets pilotés",
+    "paragraph1": "Product Manager passionné avec plus de {{count}} ans d'expérience dans la gestion de produits digitaux et la transformation numérique.",
+    "paragraph2": "Spécialisé dans le développement de solutions de paiement électronique, l'optimisation de plateformes e-commerce et la stratégie digitale.",
+    "paragraph3": "Expert en monétique, j'ai piloté des projets stratégiques pour des institutions majeures, créant des solutions innovantes qui transforment l'expérience utilisateur et génèrent des résultats mesurables.",
+    "labels": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "age": "Âge",
+      "ageValue": "28 ans"
+    }
+  },
+  "experiences": {
+    "title": "Parcours",
+    "titleHighlight": "Professionnel",
+    "list": [
+      {
+        "titre": "Chef de Produit Monétique",
+        "entreprise": "NGSR (Nouvelle Génération de Services)",
+        "periode": "Avril 2024 – Présent",
+        "description": [
+          "Pilotage complet du développement de produits digitaux (mobile & web)",
+          "Définition de stratégies pour lancer/améliorer des produits de paiement",
+          "Conception et optimisation de solutions de paiement électronique sécurisées (PCI DSS)",
+          "Suivi des intégrations de la gateway monétique avec banques et fintechs"
+        ],
+        "technologies": ["Gateway Monétique", "PCI DSS", "Mobile Money", "Visa/Mastercard"]
+      },
+      {
+        "titre": "Chef de Produits Digitaux",
+        "entreprise": "Orange Côte d'Ivoire",
+        "periode": "Mai 2023 – Mars 2024",
+        "description": [
+          "Gestion et alimentation du backlog (univers Telco, Marketplace, Orange Money)",
+          "Priorisation des évolutions produit selon les enjeux métiers",
+          "Collecte et analyse des besoins clients B2B/B2C",
+          "Optimisation des parcours utilisateurs et ergonomie"
+        ],
+        "technologies": ["Product Management", "UX/UI", "Agile/Scrum", "B2B/B2C"]
+      },
+      {
+        "titre": "Acquisition et Animation",
+        "entreprise": "Orange Côte d'Ivoire",
+        "periode": "Mars 2023 – Mai 2023",
+        "description": [
+          "Suivi et analyse des campagnes Ads (boutique en ligne, app Orange & Moi)",
+          "Planification et exécution d'études sur les offres B2B et B2C"
+        ],
+        "technologies": ["Google Ads", "Analytics", "Marketing Digital"]
+      },
+      {
+        "titre": "Junior Digital Manager",
+        "entreprise": "The Adress Abidjan",
+        "periode": "Nov. 2021 – Janv. 2022",
+        "description": [
+          "Gestion de site e-commerce (contenus, fiches produits, stocks, commandes)",
+          "Optimisation des campagnes SEO et SEA",
+          "Conception et suivi de campagnes d'emailing"
+        ],
+        "technologies": ["e-Commerce", "SEO", "SEA", "Email Marketing"]
+      },
+      {
+        "titre": "Junior Digital Manager",
+        "entreprise": "YM Africa",
+        "periode": "Fév. 2021 – Juin 2021",
+        "description": [
+          "Participation à la stratégie de contenu pour les Social Media Ads",
+          "Optimisation SEO des contenus",
+          "Community management et gestion de l'e-réputation"
+        ],
+        "technologies": ["Social Media", "SEO", "Community Management"]
+      }
+    ]
+  },
+  "projets": {
+    "title": "Projets",
+    "titleHighlight": "Clés",
+    "subtitle": "Découvrez les projets stratégiques que j'ai pilotés.",
+    "viewProject": "Voir le projet",
+    "items": [
+      {
+        "nom": "CNAM",
+        "description": "Paiement des cotisations sociales",
+        "details": [
+          "Intégration Mobile Money et Visa/Mastercard",
+          "Solution de paiement sécurisée pour cotisations",
+          "Interface simplifiée pour les assurés"
+        ],
+        "technologies": ["Mobile Money", "Visa", "Mastercard", "Gateway"]
+      },
+      {
+        "nom": "ONECI",
+        "description": "Système de paiement en ligne des frais de timbre",
+        "details": [
+          "Plateforme de paiement gouvernementale",
+          "Conformité PCI DSS",
+          "Traçabilité complète des transactions"
+        ],
+        "technologies": ["PCI DSS", "Paiement en ligne", "API REST"]
+      },
+      {
+        "nom": "Mucrefci Connect",
+        "description": "Digitalisation des demandes et paiements de crédits",
+        "details": [
+          "Plateforme pour fonctionnaires",
+          "Demande de crédit en ligne",
+          "Paiement et suivi digitalisés"
+        ],
+        "technologies": ["FinTech", "Crédit", "Digital Banking"]
+      },
+      {
+        "nom": "Monpasseport.ci",
+        "description": "Application e-commerce pour passeports",
+        "details": [
+          "Dématérialisation des demandes",
+          "Paiement en ligne sécurisé",
+          "Suivi en temps réel"
+        ],
+        "technologies": ["e-Commerce", "Paiement", "Mobile App"]
+      },
+      {
+        "nom": "Bridge Securities",
+        "description": "Application mobile/web transactionnelle",
+        "details": [
+          "Achat de produits financiers",
+          "Encaissement de dividendes",
+          "Plateforme Bridge Bank"
+        ],
+        "technologies": ["Finance", "Mobile Banking", "Web App"]
+      },
+      {
+        "nom": "MaxIt Côte d'Ivoire",
+        "description": "Application Orange CI",
+        "details": [
+          "Univers Telco, Marketplace, Orange Money",
+          "Optimisation UX/UI",
+          "Backlog management"
+        ],
+        "technologies": ["Product Management", "UX", "Agile"]
+      }
+    ]
+  },
+  "competences": {
+    "title": "Compétences",
+    "titleHighlight": "& Expertise",
+    "languages": "Langues",
+    "certifications": "Certifications",
+    "french": "Français",
+    "english": "Anglais",
+    "frenchLevel": "C2 - Natif",
+    "englishLevel": "B1 - Intermédiaire",
+    "cert1Title": "Google Ateliers Numériques",
+    "cert1Sub": "Marketing Digital",
+    "cert2Title": "Google My Business",
+    "cert2Sub": "Local SEO",
+    "categories": {
+      "productManagement": "Product Management",
+      "marketingDigital": "Marketing Digital",
+      "ecommerce": "e-Commerce",
+      "monetique": "Monétique",
+      "outils": "Outils",
+      "softSkills": "Soft Skills"
+    },
+    "skills": {
+      "productManagement": ["Agile/Scrum", "User Stories & Specs", "Roadmap & Backlog", "Go-to-Market", "UX Research"],
+      "marketingDigital": ["SEO/SEA", "Google Analytics", "Meta Business Suite", "Email Marketing", "Social Media Ads"],
+      "ecommerce": ["Stratégie e-commerce", "Funnel Optimization", "Conversion Rate", "Payment Integration", "Customer Journey"],
+      "monetique": ["Gateway Integration", "PCI DSS Compliance", "API REST", "Mobile Money", "Payment Security"],
+      "outils": ["Jira", "Trello", "HubSpot CRM", "Figma", "Postman"],
+      "softSkills": ["Leadership", "Communication", "Esprit d'équipe", "Résolution de problèmes", "Autonomie"]
+    }
+  },
+  "formation": {
+    "pathway": "Parcours",
+    "title": "Formation",
+    "titleHighlight": "& Intérêts",
+    "interestsTitle": "Centres d'",
+    "interestsTitleHighlight": "Intérêt",
+    "interestsSubtitle": "Au-delà du digital, des passions qui nourrissent ma créativité et mon équilibre.",
+    "items": [
+      {
+        "diplome": "Master en Marketing Digital et Stratégie Numérique",
+        "ecole": "ESTEM",
+        "periode": "2019 – 2021",
+        "lieu": "Casablanca, Maroc",
+        "specialite": "Digital Marketing & Strategy"
+      },
+      {
+        "diplome": "Licence en Sciences de Gestion",
+        "ecole": "ESTEM",
+        "periode": "2016 – 2019",
+        "lieu": "Casablanca, Maroc",
+        "specialite": "Management & Gestion"
+      },
+      {
+        "diplome": "Baccalauréat Littéraire (A2)",
+        "ecole": "Collège Prospère Mérimée",
+        "periode": "2015 – 2016",
+        "lieu": "Côte d'Ivoire"
+      }
+    ],
+    "interests": ["Podcast", "Basket-ball", "Lecture", "Théâtre"]
+  },
+  "contact": {
+    "title": "Travaillons",
+    "titleHighlight": "Ensemble",
+    "subtitle": "Vous avez un projet en tête ? Discutons de comment je peux vous aider à le concrétiser.",
+    "infoTitle": "Informations de",
+    "infoTitleHighlight": "Contact",
+    "availability": "Disponibilité",
+    "availabilityText": "Actuellement ouvert à de nouvelles opportunités professionnelles et collaborations freelance.",
+    "labels": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "linkedin": "LinkedIn",
+      "location": "Localisation"
+    },
+    "locationValue": "Abidjan, Côte d'Ivoire",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Objet de votre message",
+      "message": "Message",
+      "messagePlaceholder": "Votre message...",
+      "submit": "Envoyer le message"
+    }
+  },
+  "footer": {
+    "tagline": "Product Manager & Expert e-Commerce. Spécialiste monétique et stratégie digitale.",
+    "openTo": "Ouvert aux opportunités et collaborations freelance.",
+    "navigation": "Navigation",
+    "contactTitle": "Contact",
+    "rights": "Tous droits réservés.",
+    "backToTop": "Retour en haut"
+  },
+  "whatsapp": {
+    "aria": "Contacter sur WhatsApp",
+    "tooltip": "Discuter sur WhatsApp",
+    "message": "Bonjour David-Alexandre, je vous contacte suite à la visite de votre portfolio."
+  },
+  "splash": {
+    "subtitle": "Product Manager · e-Commerce"
+  }
+}

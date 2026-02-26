@@ -1,4 +1,5 @@
 import { Briefcase, Calendar } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 import { useInView } from '../hooks/useInView';
 
@@ -61,65 +62,9 @@ function ExperienceCard({ exp, accentSide }: { exp: Experience; accentSide: 'lef
 }
 
 export default function Experiences() {
+  const { t } = useTranslation();
   const { ref: sectionRef, isInView } = useInView({ threshold: 0.15 });
-  const experiences: Experience[] = [
-    {
-      titre: 'Chef de Produit Monétique',
-      entreprise: 'NGSR (Nouvelle Génération de Services)',
-      periode: 'Avril 2024 – Présent',
-      description: [
-        'Pilotage complet du développement de produits digitaux (mobile & web)',
-        'Définition de stratégies pour lancer/améliorer des produits de paiement',
-        'Conception et optimisation de solutions de paiement électronique sécurisées (PCI DSS)',
-        'Suivi des intégrations de la gateway monétique avec banques et fintechs'
-      ],
-      technologies: ['Gateway Monétique', 'PCI DSS', 'Mobile Money', 'Visa/Mastercard']
-    },
-    {
-      titre: 'Chef de Produits Digitaux',
-      entreprise: "Orange Côte d'Ivoire",
-      periode: 'Mai 2023 – Mars 2024',
-      description: [
-        'Gestion et alimentation du backlog (univers Telco, Marketplace, Orange Money)',
-        'Priorisation des évolutions produit selon les enjeux métiers',
-        'Collecte et analyse des besoins clients B2B/B2C',
-        'Optimisation des parcours utilisateurs et ergonomie'
-      ],
-      technologies: ['Product Management', 'UX/UI', 'Agile/Scrum', 'B2B/B2C']
-    },
-    {
-      titre: 'Acquisition et Animation',
-      entreprise: "Orange Côte d'Ivoire",
-      periode: 'Mars 2023 – Mai 2023',
-      description: [
-        "Suivi et analyse des campagnes Ads (boutique en ligne, app Orange & Moi)",
-        "Planification et exécution d'études sur les offres B2B et B2C"
-      ],
-      technologies: ['Google Ads', 'Analytics', 'Marketing Digital']
-    },
-    {
-      titre: 'Junior Digital Manager',
-      entreprise: 'The Adress Abidjan',
-      periode: 'Nov. 2021 – Janv. 2022',
-      description: [
-        'Gestion de site e-commerce (contenus, fiches produits, stocks, commandes)',
-        'Optimisation des campagnes SEO et SEA',
-        'Conception et suivi de campagnes d\'emailing'
-      ],
-      technologies: ['e-Commerce', 'SEO', 'SEA', 'Email Marketing']
-    },
-    {
-      titre: 'Junior Digital Manager',
-      entreprise: 'YM Africa',
-      periode: 'Fév. 2021 – Juin 2021',
-      description: [
-        'Participation à la stratégie de contenu pour les Social Media Ads',
-        'Optimisation SEO des contenus',
-        'Community management et gestion de l\'e-réputation'
-      ],
-      technologies: ['Social Media', 'SEO', 'Community Management']
-    }
-  ];
+  const experiences = t('experiences.list', { returnObjects: true }) as Experience[];
 
   return (
     <section
@@ -139,8 +84,8 @@ export default function Experiences() {
           <AnimateOnScroll variant="fade-down">
             <div className="mb-8 sm:mb-12 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">
-                <span className="text-stone-200">Parcours </span>
-                <span className="text-orange-400">Professionnel</span>
+                <span className="text-stone-200">{t('experiences.title')} </span>
+                <span className="text-orange-400">{t('experiences.titleHighlight')}</span>
               </h2>
               <div className="h-1 w-16 sm:w-20 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full timeline-title-underline" />
             </div>

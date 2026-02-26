@@ -255,7 +255,8 @@ button:focus-visible {
   transition: opacity 0.5s ease, transform 0.6s ease;
 }
 
-/* ========== Fond (statique) ========== */
+/* ========== Fond (motif figé, confort lecture) ========== */
+.bg-mesh-static,
 .bg-animated-mesh {
   background: linear-gradient(
     135deg,
@@ -470,11 +471,11 @@ button:focus-visible {
 
 /* Animations au survol (hover) */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.14);
 }
 .hover-scale {
   transition: transform 0.3s ease;
@@ -590,10 +591,11 @@ button:focus-visible {
 
 /* ========== Parcours Professionnel – thème sombre, bordures fluides, hover ========== */
 .experience-card-parcours {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 .experience-card-parcours:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.12);
 }
 
 .experience-card-accent-parcours {
@@ -704,6 +706,17 @@ button:focus-visible {
   transform: translateY(-2px) scale(1.02);
 }
 
+/* Header: animation d'entrée avant affichage (après splash) */
+.header-entrance {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+}
+.header-entrance.header-entrance-done {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 /* Navbar: animation défilante des liens */
 @keyframes navSlideIn {
   from {
@@ -761,21 +774,23 @@ button:focus-visible {
   left: 100%;
 }
 
-/* Cartes projets : surélévation au survol (cartes plus grandes) */
+
+/* Cartes projets : surélévation + scale + ombre au survol */
 .projet-card-lift {
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 .projet-card-lift:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.18);
 }
 
-/* Cartes formation / intérêts : lift + scale au survol */
+/* Cartes formation / intérêts : lift + scale + léger glow au survol */
 .formation-card-hover {
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 .formation-card-hover:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(249, 115, 22, 0.08);
 }
 
 /* ========== Motifs géométriques animés (demi-ton) ========== */
@@ -798,40 +813,6 @@ button:focus-visible {
   75% { transform: translate(-50%, -50%) translateY(-22px) translateX(6px); }
 }
 
-/* ========== Motif cercles (ouvrante, fermante, bougeante) ========== */
-.circle-motif-layer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: #000;
-  opacity: 0.18;
-  overflow: hidden;
-}
-
-.circle-motif-item {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: solid #fff;
-  box-sizing: border-box;
-  will-change: transform;
-}
-
-@keyframes circle-open-close {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(0.55) translate(0, 0);
-    opacity: 0.7;
-  }
-  33% {
-    transform: translate(-50%, -50%) scale(1.15) translate(var(--circle-move-x, 20px), var(--circle-move-y, -15px));
-    opacity: 1;
-  }
-  66% {
-    transform: translate(-50%, -50%) scale(0.85) translate(calc(var(--circle-move-x, 20px) * -0.5), calc(var(--circle-move-y, -15px) * 0.6));
-    opacity: 0.9;
-  }
-}
 @keyframes motif-pulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.45; }
   50% { transform: translate(-50%, -50%) scale(1.12); opacity: 0.65; }
