@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 export default function BoutonWhatsApp() {
   const { t } = useTranslation();
-  const numeroWhatsApp = '+2250711461480';
+  const numeroWhatsApp = '212603804825'; /* +212 603-804825 */
   const message = t('whatsapp.message');
 
   const handleClick = () => {
-    const url = `https://wa.me/${numeroWhatsApp.replace(/\+/g, '')}?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 

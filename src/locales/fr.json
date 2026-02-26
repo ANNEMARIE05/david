@@ -265,7 +265,7 @@
   "whatsapp": {
     "aria": "Contacter sur WhatsApp",
     "tooltip": "Discuter sur WhatsApp",
-    "message": "Bonjour David-Alexandre, je vous contacte suite à la visite de votre portfolio."
+    "message": "Bonjour David-Alexandre,\n\nJe vous contacte suite à la visite de votre portfolio. J’aurais plaisir à échanger avec vous sur une opportunité ou une collaboration.\n\nBien cordialement."
   },
   "splash": {
     "subtitle": "Product Manager · e-Commerce"

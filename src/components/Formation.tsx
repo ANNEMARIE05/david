@@ -4,16 +4,16 @@ import AnimateOnScroll from './AnimateOnScroll';
 import GeometricMotifs from './GeometricMotifs';
 
 const FORMATION_IMAGES = [
-  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80',
-  'https://images.unsplash.com/photo-1481627834876-8a164511e8fa?w=600&q=80',
-  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80',
+  'https://media.licdn.com/dms/image/v2/D4E22AQFuHFg2AwIViQ/feedshare-shrink_800/B4EZp8eh7iKkAo-/0/1763024972270?e=2147483647&v=beta&t=s_FvSxzD6ztWiBdS53iFXpJYW8Jp1vU8mr1gE1Oc4vY',
+  'https://media.licdn.com/dms/image/v2/D4E22AQFuHFg2AwIViQ/feedshare-shrink_800/B4EZp8eh7iKkAo-/0/1763024972270?e=2147483647&v=beta&t=s_FvSxzD6ztWiBdS53iFXpJYW8Jp1vU8mr1gE1Oc4vY',
+  'https://www.patrimoine-nouvelle-aquitaine.fr/graphQlProxy.ashx?urlgraphql=https://rna-gertrude-diffusion-graphql-prod.atolcd.com/api/file/244b8345-ed96-4767-8ac7-76b6efa96fd7.jpg',
 ];
 
 const INTEREST_IMAGES = [
-  'https://images.unsplash.com/photo-1478737270231-2f0af8e62bfe?w=400&q=80',
-  'https://images.unsplash.com/photo-1546519638-69e1094983cd?w=400&q=80',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-  'https://images.unsplash.com/photo-1503095396549-807687544591?w=400&q=80',
+  'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9kY2FzdHxlbnwwfHwwfHx8MA%3D%3D',
+  'https://media.istockphoto.com/id/1292791906/fr/photo/cerceau-de-tir-et-points-de-notation.webp?a=1&b=1&s=612x612&w=0&k=20&c=0kD76427AZodyaFPK4zVSURapW3VZdCfTyAmketajW4=',
+  'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGVjdHVyZXxlbnwwfHwwfHx8MA%3D%3D',
+  'https://images.unsplash.com/photo-1503095396549-807759245b35?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGhlYXRyZXxlbnwwfHwwfHx8MA%3D%3D',
 ];
 
 interface FormationItem {

@@ -4,12 +4,12 @@ import AnimateOnScroll from './AnimateOnScroll';
 import GeometricMotifs from './GeometricMotifs';
 
 const PROJECT_IMAGES = [
-  'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
-  'https://images.unsplash.com/photo-1563013544-6980b0c9e6e2?w=800&q=80',
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-  'https://images.unsplash.com/photo-1556742111-a301067d7705?w=800&q=80',
-  'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80',
-  'https://images.unsplash.com/photo-1551431009-a22ee028f841?w=800&q=80',
+  'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/25/13/59/2513593b-92e3-e367-32c4-96512517c849/AppIcon-0-0-1x_U007ephone-0-0-0-P3-85-220.png/1200x630wa.png',
+  'https://1telsa.fr/photopresentation/176041699811.jpg',
+  'https://play-lh.googleusercontent.com/lXHVixaS-2GlXMym7mILYSOknwg1l9x9D5c0AJKCQYPLtZDatIDGxuYXaYmFNiyUIWNI=w600-h300-pc0xffffff-pd',
+  'https://media.licdn.com/dms/image/v2/C4E22AQG0a09H9F1avw/feedshare-shrink_800/feedshare-shrink_800/0/1676309173159?e=2147483647&v=beta&t=PIAHXK_4vj-jBX9Xw4mZ2O9HS8N5qoKyQMKSFHi81HQ',
+  'https://bstrade.bridge-securities.com/img/logo2.png',
+  'https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5e/95/89/5e958983-8a71-dedf-6f04-1041896162b8/Placeholder.mill/1200x630wa.jpg',
 ];
 
 interface Projet {
