@@ -41,7 +41,7 @@
     "titleHighlight": "Professionnel",
     "list": [
       {
-        "titre": "Chef de Produit Monétique",
+        "titre": "Product Owner Monétique",
         "entreprise": "NGSR (Nouvelle Génération de Services)",
         "periode": "Avril 2024 – Présent",
         "description": [
@@ -53,7 +53,7 @@
         "technologies": ["Gateway Monétique", "PCI DSS", "Mobile Money", "Visa/Mastercard"]
       },
       {
-        "titre": "Chef de Produits Digitaux",
+        "titre": "Product Owner Digitaux",
         "entreprise": "Orange Côte d'Ivoire",
         "periode": "Mai 2023 – Mars 2024",
         "description": [
@@ -163,6 +163,16 @@
           "Backlog management"
         ],
         "technologies": ["Product Management", "UX", "Agile"]
+      },
+      {
+        "nom": "Kaki Academy",
+        "description": "Application EdTech – Module d'orientation professionnelle (+3 000 apprenants en Afrique)",
+        "details": [
+          "Conception et déploiement d'un module stratégique d'orientation professionnelle intégrant plus de 250 fiches métiers, alignées avec les parcours pédagogiques",
+          "Définition de la vision produit, priorisation du backlog et coordination du développement",
+          "Renforcement de l'engagement des apprenants et amélioration de la projection vers des débouchés concrets"
+        ],
+        "technologies": ["EdTech", "Product Ownership", "Backlog", "Pédagogie"]
       }
     ]
   },

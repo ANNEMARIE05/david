@@ -41,7 +41,7 @@
     "titleHighlight": "Experience",
     "list": [
       {
-        "titre": "Payment Product Manager",
+        "titre": "Product Owner (Payment)",
         "entreprise": "NGSR (Nouvelle Génération de Services)",
         "periode": "April 2024 – Present",
         "description": [
@@ -53,7 +53,7 @@
         "technologies": ["Payment Gateway", "PCI DSS", "Mobile Money", "Visa/Mastercard"]
       },
       {
-        "titre": "Digital Product Manager",
+        "titre": "Product Owner (Digital)",
         "entreprise": "Orange Côte d'Ivoire",
         "periode": "May 2023 – March 2024",
         "description": [
@@ -163,6 +163,16 @@
           "Backlog management"
         ],
         "technologies": ["Product Management", "UX", "Agile"]
+      },
+      {
+        "nom": "Kaki Academy",
+        "description": "EdTech app – Career orientation module (+3,000 learners in Africa)",
+        "details": [
+          "Design and deployment of a strategic career orientation module with 250+ job profiles aligned with learning paths",
+          "Product vision, backlog prioritization and development coordination",
+          "Increased learner engagement and clearer pathways to concrete career outcomes"
+        ],
+        "technologies": ["EdTech", "Product Ownership", "Backlog", "Pedagogy"]
       }
     ]
   },
