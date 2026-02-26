@@ -44,6 +44,7 @@
         "titre": "Product Owner",
         "entreprise": "NGSER (Nouvelle Génération de Services)",
         "periode": "April 2024 – Present",
+        "logo": "/logos/ngser.png",
         "description": [
           "End-to-end management of digital product development (mobile & web)",
           "Defining strategies to launch/improve payment products",
@@ -56,6 +57,7 @@
         "titre": "Product Owner",
         "entreprise": "Orange Côte d'Ivoire",
         "periode": "May 2023 – March 2024",
+        "logo": "/logos/orange.png",
         "description": [
           "Backlog management (Telco, Marketplace, Orange Money)",
           "Prioritizing product evolutions based on business stakes",
@@ -68,6 +70,7 @@
         "titre": "Acquisition & Engagement",
         "entreprise": "Orange Côte d'Ivoire",
         "periode": "March 2023 – May 2023",
+        "logo": "/logos/orange.png",
         "description": [
           "Ad campaign tracking and analysis (online store, Orange & Moi app)",
           "Planning and running studies on B2B and B2C offerings"
@@ -78,6 +81,8 @@
         "titre": "Junior Digital Manager",
         "entreprise": "The Adress Abidjan",
         "periode": "Nov. 2021 – Jan. 2022",
+        "logo": "/logos/the-adress.png",
+        "logoFallback": "TAA",
         "description": [
           "E-commerce site management (content, product pages, stock, orders)",
           "SEO and SEA campaign optimization",
@@ -89,6 +94,7 @@
         "titre": "Junior Digital Manager",
         "entreprise": "YM Africa",
         "periode": "Feb. 2021 – June 2021",
+        "logo": "/logos/ym-africa.png",
         "description": [
           "Content strategy for Social Media Ads",
           "Content SEO optimization",
@@ -100,6 +106,7 @@
         "titre": "Marketing Research Officer",
         "entreprise": "MedZ subsidiary of CDG",
         "periode": "Feb. 2018 – March 2018",
+        "logo": "/logos/medz.png",
         "description": [
           "Investment opportunity studies through identification and outreach to national and international players to develop economic activity zones that create value and meet market needs.",
           "Conducting marketing studies on industrial sectors in Côte d'Ivoire, Guinea Conakry, Gabon and Mali in support of regional commercial strategies."
@@ -110,6 +117,7 @@
         "titre": "Marketing Assistant",
         "entreprise": "MedZ subsidiary of CDG",
         "periode": "July 2017 – Aug. 2017",
+        "logo": "/logos/medz.png",
         "description": [
           "Customer outreach and follow-up via CRM software to strengthen commercial performance, improve customer service and support marketing actions."
         ],

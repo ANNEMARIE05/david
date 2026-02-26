@@ -4,8 +4,8 @@ import AnimateOnScroll from './AnimateOnScroll';
 import GeometricMotifs from './GeometricMotifs';
 
 const FORMATION_IMAGES = [
-  'https://media.licdn.com/dms/image/v2/D4E22AQFuHFg2AwIViQ/feedshare-shrink_800/B4EZp8eh7iKkAo-/0/1763024972270?e=2147483647&v=beta&t=s_FvSxzD6ztWiBdS53iFXpJYW8Jp1vU8mr1gE1Oc4vY',
-  'https://media.licdn.com/dms/image/v2/D4E22AQFuHFg2AwIViQ/feedshare-shrink_800/B4EZp8eh7iKkAo-/0/1763024972270?e=2147483647&v=beta&t=s_FvSxzD6ztWiBdS53iFXpJYW8Jp1vU8mr1gE1Oc4vY',
+  'https://media.licdn.com/dms/image/v2/D4E22AQH68ICPbBCWWQ/feedshare-shrink_2048_1536/B4EZfUzIhfHsAo-/0/1751621872587?e=1773878400&v=beta&t=6gBKlo0jLwfv58HOVH0w-Si-hp91yJ03xlnKSRmahKQ',
+  'https://media.licdn.com/dms/image/v2/D4E22AQH68ICPbBCWWQ/feedshare-shrink_2048_1536/B4EZfUzIhfHsAo-/0/1751621872587?e=1773878400&v=beta&t=6gBKlo0jLwfv58HOVH0w-Si-hp91yJ03xlnKSRmahKQ',
   'https://www.patrimoine-nouvelle-aquitaine.fr/graphQlProxy.ashx?urlgraphql=https://rna-gertrude-diffusion-graphql-prod.atolcd.com/api/file/244b8345-ed96-4767-8ac7-76b6efa96fd7.jpg',
 ];
 

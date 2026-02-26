@@ -1,4 +1,5 @@
-import { Briefcase, Calendar } from 'lucide-react';
+import { useState } from 'react';
+import { Calendar } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 import { useInView } from '../hooks/useInView';
@@ -11,9 +12,15 @@ interface Experience {
   localisation?: string;
   description: string[];
   technologies?: string[];
+  logo?: string;
+  logoFallback?: string;
 }
 
 function ExperienceCard({ exp, accentSide }: { exp: Experience; accentSide: 'left' | 'right' }) {
+  const [logoError, setLogoError] = useState(false);
+  const showLogo = exp.logo && !logoError;
+  const fallbackText = exp.logoFallback ?? exp.entreprise.charAt(0);
+
   return (
     <div className="experience-card-parcours rounded-lg border border-stone-600/80 bg-stone-800/90 shadow-lg p-4 sm:p-5 md:p-6 transition-all duration-300 overflow-hidden hover:border-accent-500/50 hover:shadow-accent-500/10 hover:shadow-xl relative">
       {/* Barre d'accent côté timeline */}
@@ -22,8 +29,19 @@ function ExperienceCard({ exp, accentSide }: { exp: Experience; accentSide: 'lef
       />
       <div className="flex flex-wrap items-start justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <div className="p-2 sm:p-2.5 rounded-lg bg-accent-500/20 text-accent-400 experience-icon-wrap-parcours transition-all duration-300 shrink-0">
-            <Briefcase size={20} className="sm:w-5 sm:h-5" strokeWidth={2} />
+          <div className="p-2 sm:p-2.5 rounded-lg bg-stone-700/80 experience-icon-wrap-parcours transition-all duration-300 shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center overflow-hidden">
+            {showLogo ? (
+              <img
+                src={exp.logo}
+                alt=""
+                className="w-full h-full object-contain"
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <span className="text-accent-400 font-bold text-sm sm:text-base">
+                {fallbackText}
+              </span>
+            )}
           </div>
           <div className="min-w-0">
             <h3 className="font-bold text-white text-base sm:text-lg">{exp.titre}</h3>
