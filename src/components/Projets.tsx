@@ -10,7 +10,7 @@ const PROJECT_IMAGES = [
   'https://media.licdn.com/dms/image/v2/C4E22AQG0a09H9F1avw/feedshare-shrink_800/feedshare-shrink_800/0/1676309173159?e=2147483647&v=beta&t=PIAHXK_4vj-jBX9Xw4mZ2O9HS8N5qoKyQMKSFHi81HQ',
   'https://bstrade.bridge-securities.com/img/logo2.png',
   'https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5e/95/89/5e958983-8a71-dedf-6f04-1041896162b8/Placeholder.mill/1200x630wa.jpg',
-  '', // Kaki Academy – remplacer par l'URL de l'image du projet si besoin
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVhcyCBp1VSCsE4yM6fTcLWN6nYfRwAzX7tA&s', 
 ];
 
 interface Projet {
