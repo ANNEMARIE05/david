@@ -176,8 +176,9 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
               )}
             </div>
             <a
-              href="/cv.pdf"
-              download
+              href="https://drive.google.com/uc?export=download&id=1jZAE9zH5nbR7htcmBf4NX3ynnI1yki_A"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-2.5 px-5 py-2.5 lg:px-6 lg:py-3 bg-accent-500 text-white text-sm font-semibold hover:bg-accent-600 transition-colors duration-200 rounded-lg shadow-sm hover:shadow-md"
             >
               <Download size={17} />
@@ -208,8 +209,9 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
               </a>
             ))}
             <a
-              href="/cv.pdf"
-              download
+              href="https://drive.google.com/uc?export=download&id=1jZAE9zH5nbR7htcmBf4NX3ynnI1yki_A"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2.5 py-3.5 px-2 text-sm font-medium text-accent-600 rounded-md hover:bg-accent-50"
               onClick={() => setMenuOuvert(false)}
             >

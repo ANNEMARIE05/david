@@ -18,12 +18,22 @@ body {
   background-image: radial-gradient(circle at 1px 1px, rgba(249, 115, 22, 0.08) 1px, transparent 0);
   background-size: 32px 32px;
 }
+@media (max-width: 767px) {
+  .bg-pattern-dots {
+    background-size: 48px 48px;
+  }
+}
 
 .bg-pattern-grid {
   background-image:
     linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+@media (max-width: 767px) {
+  .bg-pattern-grid {
+    background-size: 64px 64px;
+  }
 }
 
 @keyframes slideUp {
@@ -303,6 +313,14 @@ button:focus-visible {
     linear-gradient(rgba(249, 115, 22, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(249, 115, 22, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+@media (max-width: 767px) {
+  .bg-pattern-dots-dark {
+    background-size: 56px 56px;
+  }
+  .bg-pattern-grid-dark {
+    background-size: 64px 64px;
+  }
 }
 
 /* Motifs ronds sur les cartes noires (Parcours Professionnel) */
@@ -794,6 +812,11 @@ button:focus-visible {
   transform: translate(-50%, -50%);
   opacity: 0.5;
   will-change: transform;
+}
+@media (max-width: 767px) {
+  .motif-item {
+    opacity: 0.32;
+  }
 }
 .motif-svg {
   width: 100%;

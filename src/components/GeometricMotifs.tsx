@@ -1,8 +1,10 @@
 /**
  * Motifs géométriques : zigzag, points, cercles, arcs, plus —
  * en gris et orange (couleur principale).
+ * Sur mobile : moins de motifs et tailles réduites.
  */
 import { useMemo } from 'react';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const ACCENT = '#f97316'; /* accent-500 - orange */
 const DARK = '#1e293b';   /* slate-800 */
@@ -284,16 +286,28 @@ interface GeometricMotifsProps {
 const COLORS_DEFAULT: MotifColors = { dark: DARK, accent: ACCENT };
 const COLORS_LIGHT: MotifColors = { dark: LIGHT, accent: ACCENT_LIGHT };
 
+const MOTIFS_MOBILE_COUNT = 6;
+const MOTIFS_MOBILE_SIZE_SCALE = 0.65;
+
 export default function GeometricMotifs({ mode = 'fixed', variant = 'default' }: GeometricMotifsProps) {
+  const isMobile = useMediaQuery('(max-width: 767px)');
   const colors = variant === 'light' ? COLORS_LIGHT : COLORS_DEFAULT;
   const containerClass =
     mode === 'absolute'
       ? 'absolute inset-0 overflow-hidden pointer-events-none z-[1]'
       : 'fixed inset-0 overflow-hidden pointer-events-none z-0';
 
+  const displayMotifs = useMemo(() => {
+    if (!isMobile) return MOTIFS;
+    return MOTIFS.slice(0, MOTIFS_MOBILE_COUNT).map((def) => ({
+      ...def,
+      size: Math.max(12, Math.round(def.size * MOTIFS_MOBILE_SIZE_SCALE)),
+    }));
+  }, [isMobile]);
+
   return (
     <div className={containerClass} aria-hidden>
-      {MOTIFS.map((def, i) => (
+      {displayMotifs.map((def, i) => (
         <MotifShape key={`${def.type}-${def.left}-${def.top}-${i}`} def={def} colors={colors} />
       ))}
     </div>
