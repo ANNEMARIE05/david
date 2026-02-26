@@ -41,7 +41,7 @@ export default function Formation() {
               <span className="text-accent-500 text-xs sm:text-sm font-medium uppercase tracking-widest">{t('formation.pathway')}</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-1 sm:mt-2">
                 <span className="text-stone-800">{t('formation.title')} </span>
-                <span className="text-accent-500">& {t('formation.titleHighlight')}</span>
+                <span className="text-accent-500">{t('formation.titleHighlight')}</span>
               </h2>
             </div>
           </AnimateOnScroll>
