@@ -1,58 +1,15 @@
-import { useState, useEffect } from 'react';
 import { Code, Megaphone, ShoppingCart, CreditCard, Users, TrendingUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
-import { useInView } from '../hooks/useInView';
 import GeometricMotifs from './GeometricMotifs';
-
-interface Competence {
-  categorie: string;
-  icone: React.ReactNode;
-  items: { nom: string; niveau: number }[];
-}
-
-function AnimatedBar({ niveau, inView }: { niveau: number; inView: boolean }) {
-  const [animated, setAnimated] = useState(false);
-  useEffect(() => {
-    if (inView) setAnimated(true);
-  }, [inView]);
-  return (
-    <div className="h-2.5 bg-stone-100 rounded-full overflow-hidden">
-      <div
-        className="h-full bg-gradient-to-r from-accent-500 to-accent-400 rounded-full transition-all duration-1000 ease-out"
-        style={{ width: animated ? `${niveau}%` : '0%' }}
-      />
-    </div>
-  );
-}
 
 const CATEGORY_KEYS = ['productManagement', 'marketingDigital', 'ecommerce', 'monetique', 'outils', 'softSkills'] as const;
 const ICONS = [TrendingUp, Megaphone, ShoppingCart, CreditCard, Code, Users];
-const NIVEAUX = [
-  [95, 90, 92, 88, 85],
-  [88, 90, 85, 87, 86],
-  [92, 90, 88, 95, 89],
-  [95, 92, 90, 93, 94],
-  [92, 88, 85, 80, 87],
-  [90, 95, 93, 91, 92],
-];
 
 export default function Competences() {
   const { t } = useTranslation();
-  const [categorieActive, setCategorieActive] = useState(0);
-  const { ref: barRef, isInView } = useInView({ threshold: 0.2 });
-
   const categories = t('competences.categories', { returnObjects: true }) as Record<string, string>;
   const skillsObj = t('competences.skills', { returnObjects: true }) as Record<string, string[]>;
-  const competences: Competence[] = CATEGORY_KEYS.map((key, i) => {
-    const Icon = ICONS[i];
-    const noms = skillsObj[key] ?? [];
-    return {
-      categorie: categories[key] ?? key,
-      icone: <Icon size={22} />,
-      items: noms.map((nom, j) => ({ nom, niveau: NIVEAUX[i]?.[j] ?? 0 })),
-    };
-  });
 
   return (
     <section id="competences" className="relative py-10 sm:py-14 md:py-20 lg:py-24 border-t border-stone-100 overflow-hidden">
@@ -65,79 +22,59 @@ export default function Competences() {
               <span className="text-accent-500">{t('competences.titleHighlight')}</span>
             </h2>
           </AnimateOnScroll>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6 md:mb-8">
-            {competences.map((comp, index) => (
-              <AnimateOnScroll key={index} variant="zoom-in" delay={(index % 4) as 0 | 1 | 2}>
-                <button
-                  onClick={() => setCategorieActive(index)}
-                  className={`px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium transition-all duration-300 rounded-lg hover-scale ${
-                    categorieActive === index
-                      ? 'bg-accent-500 text-white shadow-md'
-                      : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
-                  }`}
-                >
-                  {comp.icone}
-                  <span className="ml-1">{comp.categorie}</span>
-                </button>
-              </AnimateOnScroll>
-            ))}
+
+          {/* Grille de cartes par catégorie — compétences en badges */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+            {CATEGORY_KEYS.map((key, index) => {
+              const Icon = ICONS[index];
+              const noms = skillsObj[key] ?? [];
+              return (
+                <AnimateOnScroll key={key} variant="scale-up" delay={(index % 3) as 0 | 1 | 2}>
+                  <div className="rounded-xl border border-stone-200 bg-white p-4 sm:p-5 md:p-6 hover:border-accent-200 hover:shadow-md transition-all duration-300 group">
+                    <div className="flex items-center gap-2.5 mb-3 sm:mb-4">
+                      <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-accent-50 text-accent-600 group-hover:bg-accent-500 group-hover:text-white transition-colors">
+                        <Icon size={20} />
+                      </span>
+                      <h3 className="text-base sm:text-lg font-bold text-stone-800">{categories[key] ?? key}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {noms.map((nom, j) => (
+                        <span
+                          key={j}
+                          className="px-2.5 py-1 text-xs sm:text-sm font-medium text-stone-600 bg-stone-100 rounded-md hover:bg-accent-50 hover:text-accent-700 transition-colors"
+                        >
+                          {nom}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </AnimateOnScroll>
+              );
+            })}
           </div>
 
-          <AnimateOnScroll variant="scale-up">
-            <div ref={barRef} className="rounded-lg border border-stone-200 border-l-4 border-l-accent-500 p-4 sm:p-6 md:p-8 bg-white hover-lift transition-all">
-              <div className="space-y-3 sm:space-y-4 md:space-y-5">
-                {competences[categorieActive].items.map((item, index) => (
-                  <div key={index} className="group">
-                    <div className="flex justify-between mb-1 sm:mb-1.5">
-                      <span className="text-stone-800 font-medium text-sm sm:text-base">{item.nom}</span>
-                      <span className="text-accent-500 font-bold text-xs sm:text-sm">{item.niveau}%</span>
-                    </div>
-                    <AnimatedBar niveau={item.niveau} inView={isInView} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimateOnScroll>
-
+          {/* Langues et certifications — liste simple, sans barres */}
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12">
             <AnimateOnScroll variant="slide-right" delay={1}>
-              <div className="p-4 sm:p-6 md:p-8 rounded-lg border border-stone-200 bg-white border-l-4 border-l-accent-500 hover-lift transition-all">
+              <div className="p-4 sm:p-6 md:p-8 rounded-xl border border-stone-200 bg-white hover:border-accent-200 hover:shadow-md transition-all duration-300">
                 <h3 className="text-lg sm:text-xl font-bold text-stone-800 mb-3 sm:mb-4">{t('competences.languages')}</h3>
-                <div className="space-y-3 sm:space-y-4">
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-1 sm:mb-1.5">
-                      <span className="flex items-center gap-2 text-stone-700 text-sm sm:text-base">
-                        <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-md overflow-hidden bg-stone-100 flex items-center justify-center text-base sm:text-lg flex-shrink-0" aria-hidden>
-                          🇫🇷
-                        </span>
-                        {t('competences.french')}
-                      </span>
-                      <span className="text-accent-500 font-bold text-xs sm:text-sm">{t('competences.frenchLevel')}</span>
-                    </div>
-                    <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-accent-500 rounded-full transition-all duration-1000" style={{ width: isInView ? '100%' : '0%' }} />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-1 sm:mb-1.5">
-                      <span className="flex items-center gap-2 text-stone-700 text-sm sm:text-base">
-                        <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-md overflow-hidden bg-stone-100 flex items-center justify-center text-base sm:text-lg flex-shrink-0" aria-hidden>
-                          🇬🇧
-                        </span>
-                        {t('competences.english')}
-                      </span>
-                      <span className="text-accent-500 font-bold text-xs sm:text-sm">{t('competences.englishLevel')}</span>
-                    </div>
-                    <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-accent-500 rounded-full transition-all duration-1000" style={{ width: isInView ? '60%' : '0%' }} />
-                    </div>
-                  </div>
-                </div>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-3 text-stone-700">
+                    <span className="w-8 h-8 rounded-lg bg-stone-100 flex items-center justify-center text-lg flex-shrink-0" aria-hidden>🇫🇷</span>
+                    <span className="font-medium">{t('competences.french')}</span>
+                    <span className="text-accent-500 font-semibold text-sm">{t('competences.frenchLevel')}</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-stone-700">
+                    <span className="w-8 h-8 rounded-lg bg-stone-100 flex items-center justify-center text-lg flex-shrink-0" aria-hidden>🇬🇧</span>
+                    <span className="font-medium">{t('competences.english')}</span>
+                    <span className="text-accent-500 font-semibold text-sm">{t('competences.englishLevel')}</span>
+                  </li>
+                </ul>
               </div>
             </AnimateOnScroll>
 
             <AnimateOnScroll variant="slide-left" delay={2}>
-              <div className="p-4 sm:p-6 md:p-8 rounded-lg border border-stone-200 bg-white border-l-4 border-l-accent-500 hover-lift transition-all">
+              <div className="p-4 sm:p-6 md:p-8 rounded-xl border border-stone-200 bg-white hover:border-accent-200 hover:shadow-md transition-all duration-300">
                 <h3 className="text-base sm:text-lg font-bold text-stone-800 mb-3 sm:mb-4">{t('competences.certifications')}</h3>
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-start gap-2 sm:gap-3 group">
