@@ -6,7 +6,7 @@ import GeometricMotifs from './GeometricMotifs';
 
 const ALEXANDRE = 'ALEXANDRE';
 const HERO_IMAGE_URL =
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop';
+  'https://media.licdn.com/dms/image/v2/D4E03AQGB0fnonW9njg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1682519237807?e=1773878400&v=beta&t=ikNda_m1FqnW-W4QJZRPUxSYeTKRmit42o1zhY6yYps';
 
 interface HeroProps {
   scrollY?: number;
