@@ -15,7 +15,7 @@
   },
   "hero": {
     "hello": "Bonjour, je suis",
-    "subtitle": "Product Manager · e-Commerce · Stratégie digitale",
+    "subtitle": "PRODUCT MANAGEMENT | GESTION DE PROJET | UX RECHERCHE | STRATEGIE & INNOVATION",
     "bio": "Spécialiste de la transformation digitale et du développement de produits innovants, avec une expertise en monétique et paiements électroniques.",
     "yearsExp": "ans d'expérience",
     "keyProjects": "projets clés",
@@ -41,8 +41,8 @@
     "titleHighlight": "Professionnel",
     "list": [
       {
-        "titre": "Product Owner Monétique",
-        "entreprise": "NGSR (Nouvelle Génération de Services)",
+        "titre": "Product Owner",
+        "entreprise": "NGSER (Nouvelle Génération de Services)",
         "periode": "Avril 2024 – Présent",
         "description": [
           "Pilotage complet du développement de produits digitaux (mobile & web)",
@@ -53,7 +53,7 @@
         "technologies": ["Gateway Monétique", "PCI DSS", "Mobile Money", "Visa/Mastercard"]
       },
       {
-        "titre": "Product Owner Digitaux",
+        "titre": "Product Owner",
         "entreprise": "Orange Côte d'Ivoire",
         "periode": "Mai 2023 – Mars 2024",
         "description": [
@@ -95,6 +95,25 @@
           "Community management et gestion de l'e-réputation"
         ],
         "technologies": ["Social Media", "SEO", "Community Management"]
+      },
+      {
+        "titre": "Chargé d'Etude Marketing",
+        "entreprise": "MedZ filiale de la CDG",
+        "periode": "Fév. 2018 – Mars 2018",
+        "description": [
+          "Etude d'opportunité d'investissement par l'identification et le démarchage d'acteurs nationaux et internationaux pour développer des zones d'activités économiques créatrices de valeur et répondant au besoin du marché.",
+          "Conduite d'études marketing sur les secteurs industriels en Côte d'Ivoire, Guinée Conakry, Gabon et Mali en appui aux stratégies commerciales régionales."
+        ],
+        "technologies": ["Études marketing", "CRM", "Stratégie commerciale"]
+      },
+      {
+        "titre": "Assistant Marketing",
+        "entreprise": "MedZ filiale de la CDG",
+        "periode": "Juil. 2017 – Août 2017",
+        "description": [
+          "Mise en relation et suivi client via un logiciel CRM afin de renforcer la performance commerciale, améliorer le service client et appuyer les actions marketing."
+        ],
+        "technologies": ["CRM", "Service client", "Marketing"]
       }
     ]
   },
@@ -278,6 +297,6 @@
     "message": "Bonjour David-Alexandre,\n\nJe vous contacte suite à la visite de votre portfolio. J’aurais plaisir à échanger avec vous sur une opportunité ou une collaboration.\n\nBien cordialement."
   },
   "splash": {
-    "subtitle": "Product Manager · e-Commerce"
+    "subtitle": "PRODUCT MANAGEMENT | GESTION DE PROJET | UX RECHERCHE | STRATEGIE & INNOVATION"
   }
 }

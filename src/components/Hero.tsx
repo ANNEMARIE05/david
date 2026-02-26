@@ -57,7 +57,7 @@ export default function Hero({ scrollY = 0 }: HeroProps) {
                 </span>
               </h1>
             </div>
-            <p className="text-stone-600 font-medium text-sm sm:text-base mb-1 sm:mb-2">
+            <p className="text-sm sm:text-base font-medium mb-1 sm:mb-2 uppercase tracking-wider bg-gradient-to-r from-accent-500 to-violet-600 bg-clip-text text-transparent">
               {t('hero.subtitle')}
             </p>
             <p className="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">

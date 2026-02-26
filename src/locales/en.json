@@ -15,7 +15,7 @@
   },
   "hero": {
     "hello": "Hello, I'm",
-    "subtitle": "Product Manager · e-Commerce · Digital Strategy",
+    "subtitle": "PRODUCT MANAGEMENT | PROJECT MANAGEMENT | UX RESEARCH | STRATEGY & INNOVATION",
     "bio": "Specialist in digital transformation and innovative product development, with expertise in payment systems and electronic payments.",
     "yearsExp": "years of experience",
     "keyProjects": "key projects",
@@ -41,8 +41,8 @@
     "titleHighlight": "Experience",
     "list": [
       {
-        "titre": "Product Owner (Payment)",
-        "entreprise": "NGSR (Nouvelle Génération de Services)",
+        "titre": "Product Owner",
+        "entreprise": "NGSER (Nouvelle Génération de Services)",
         "periode": "April 2024 – Present",
         "description": [
           "End-to-end management of digital product development (mobile & web)",
@@ -53,7 +53,7 @@
         "technologies": ["Payment Gateway", "PCI DSS", "Mobile Money", "Visa/Mastercard"]
       },
       {
-        "titre": "Product Owner (Digital)",
+        "titre": "Product Owner",
         "entreprise": "Orange Côte d'Ivoire",
         "periode": "May 2023 – March 2024",
         "description": [
@@ -95,6 +95,25 @@
           "Community management and e-reputation"
         ],
         "technologies": ["Social Media", "SEO", "Community Management"]
+      },
+      {
+        "titre": "Marketing Research Officer",
+        "entreprise": "MedZ subsidiary of CDG",
+        "periode": "Feb. 2018 – March 2018",
+        "description": [
+          "Investment opportunity studies through identification and outreach to national and international players to develop economic activity zones that create value and meet market needs.",
+          "Conducting marketing studies on industrial sectors in Côte d'Ivoire, Guinea Conakry, Gabon and Mali in support of regional commercial strategies."
+        ],
+        "technologies": ["Marketing research", "CRM", "Commercial strategy"]
+      },
+      {
+        "titre": "Marketing Assistant",
+        "entreprise": "MedZ subsidiary of CDG",
+        "periode": "July 2017 – Aug. 2017",
+        "description": [
+          "Customer outreach and follow-up via CRM software to strengthen commercial performance, improve customer service and support marketing actions."
+        ],
+        "technologies": ["CRM", "Customer service", "Marketing"]
       }
     ]
   },
@@ -278,6 +297,6 @@
     "message": "Hello David-Alexandre,\n\nI'm reaching out after visiting your portfolio. I would be glad to discuss an opportunity or collaboration with you.\n\nBest regards."
   },
   "splash": {
-    "subtitle": "Product Manager · e-Commerce"
+    "subtitle": "PRODUCT MANAGEMENT | PROJECT MANAGEMENT | UX RESEARCH | STRATEGY & INNOVATION"
   }
 }

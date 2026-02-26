@@ -14,7 +14,7 @@ export default function Apropos() {
   const CONTACT_ITEMS = [
     { Icon: Mail, labelKey: 'about.labels.email', value: 'nguessanamsah98@gmail.com', href: 'mailto:nguessanamsah98@gmail.com' },
     { Icon: Phone, labelKey: 'about.labels.phone', value: '+225 07 11 46 14 80', href: 'tel:+2250711461480' },
-    { Icon: Linkedin, labelKey: 'contact.labels.linkedin', value: "Amsah David-Alexandre N'Guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-nguessan/', external: true },
+    { Icon: Linkedin, labelKey: 'contact.labels.linkedin', value: "Amsah David-Alexandre N'Guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-n%E2%80%99guessan-52a6541a3/', external: true },
     { Icon: CalendarDays, labelKey: 'about.labels.age', value: t('about.labels.ageValue'), href: undefined },
   ] as const;
 

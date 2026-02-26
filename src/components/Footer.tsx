@@ -98,7 +98,7 @@ export default function Footer() {
                 <li>
                   <AnimateOnScroll variant="fade-in" delay={2}>
                   <a
-                    href="https://www.linkedin.com/in/amsah-david-alexandre-nguessan"
+                    href="https://www.linkedin.com/in/amsah-david-alexandre-n%E2%80%99guessan-52a6541a3/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 hover:text-accent-400 transition-colors"

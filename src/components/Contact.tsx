@@ -22,7 +22,7 @@ export default function Contact() {
   const contactItems = [
     { Icon: Mail, labelKey: 'contact.labels.email', value: 'nguessanamsah98@gmail.com', href: 'mailto:nguessanamsah98@gmail.com' },
     { Icon: Phone, labelKey: 'contact.labels.phone', value: '+225 07 11 46 14 80', href: 'tel:+2250711461480' },
-    { Icon: Linkedin, labelKey: 'contact.labels.linkedin', value: "amsah david-alexandre n'guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-nguessan' },
+    { Icon: Linkedin, labelKey: 'contact.labels.linkedin', value: "amsah david-alexandre n'guessan", href: 'https://www.linkedin.com/in/amsah-david-alexandre-n%E2%80%99guessan-52a6541a3/' },
     { Icon: MapPin, labelKey: 'contact.labels.location', value: t('contact.locationValue'), href: null as string | null },
   ];
 
