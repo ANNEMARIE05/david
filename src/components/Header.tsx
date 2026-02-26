@@ -89,7 +89,7 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
               className="h-9 w-9 sm:h-10 sm:w-10 object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <span className="text-xl font-bold text-stone-800 tracking-tight">
-              DA<span className="text-orange-500">N</span>
+              DA<span className="text-accent-500">N</span>
             </span>
           </a>
 
@@ -105,8 +105,8 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
                     navAnimated ? 'nav-link-anim' : 'opacity-0'
                   } ${
                     isActive
-                      ? 'text-orange-500 active-underline'
-                      : 'text-stone-600 hover:text-orange-500'
+                      ? 'text-accent-500 active-underline'
+                      : 'text-stone-600 hover:text-accent-500'
                   }`}
                   style={{ animationDelay: `${i * 0.05}s` }}
                 >
@@ -157,7 +157,7 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
                       onClick={() => changeLanguage(lang.code)}
                       className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-sm text-left transition-colors first:rounded-t-md last:rounded-b-md ${
                         currentLang.code === lang.code
-                          ? 'bg-orange-50 text-orange-600 font-medium'
+                          ? 'bg-accent-50 text-accent-600 font-medium'
                           : 'text-stone-700 hover:bg-stone-50'
                       }`}
                     >
@@ -178,7 +178,7 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
             <a
               href="/cv.pdf"
               download
-              className="hidden sm:inline-flex items-center gap-2.5 px-5 py-2.5 lg:px-6 lg:py-3 bg-orange-500 text-white text-sm font-medium hover:bg-orange-600 transition-colors duration-200 rounded-lg"
+              className="hidden sm:inline-flex items-center gap-2.5 px-5 py-2.5 lg:px-6 lg:py-3 bg-accent-500 text-white text-sm font-semibold hover:bg-accent-600 transition-colors duration-200 rounded-lg shadow-sm hover:shadow-md"
             >
               <Download size={17} />
               {t('nav.downloadCv')}
@@ -201,7 +201,7 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
                 href={lien.href}
                 onClick={() => setMenuOuvert(false)}
                 className={`block py-3.5 px-2 text-sm font-medium rounded-md tracking-wide ${
-                  activeSection === lien.id ? 'text-orange-500 bg-orange-50' : 'text-stone-600 hover:bg-stone-50'
+                  activeSection === lien.id ? 'text-accent-500 bg-accent-50' : 'text-stone-600 hover:bg-stone-50'
                 }`}
               >
                 {t(lien.nomKey)}
@@ -210,7 +210,7 @@ export default function Header({ scrollY, activeSection, isVisible = true }: Hea
             <a
               href="/cv.pdf"
               download
-              className="flex items-center gap-2.5 py-3.5 px-2 text-sm font-medium text-orange-500 rounded-md hover:bg-orange-50"
+              className="flex items-center gap-2.5 py-3.5 px-2 text-sm font-medium text-accent-600 rounded-md hover:bg-accent-50"
               onClick={() => setMenuOuvert(false)}
             >
               <Download size={17} />

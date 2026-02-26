@@ -1,6 +1,7 @@
 import { ExternalLink, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
+import GeometricMotifs from './GeometricMotifs';
 
 const PROJECT_IMAGES = [
   'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
@@ -24,13 +25,14 @@ export default function Projets() {
   const projets = items.map((item, i) => ({ ...item, image: PROJECT_IMAGES[i] ?? '' }));
 
   return (
-    <section id="projets" className="py-10 sm:py-14 md:py-24 border-t border-stone-100 overflow-hidden">
-      <div className="w-full px-4 sm:px-6 lg:px-10">
+    <section id="projets" className="relative py-10 sm:py-14 md:py-24 border-t border-stone-100 overflow-hidden">
+      <GeometricMotifs mode="absolute" />
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10">
         <div className="max-w-5xl mx-auto">
           <AnimateOnScroll variant="fade-down">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">
               <span className="text-stone-800">{t('projets.title')} </span>
-              <span className="text-orange-500">{t('projets.titleHighlight')}</span>
+              <span className="text-accent-500">{t('projets.titleHighlight')}</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variant="fade-up" delay={1}>
@@ -42,9 +44,9 @@ export default function Projets() {
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {projets.map((projet, index) => (
               <AnimateOnScroll key={index} variant="fade-up" delay={(index % 2) as 0 | 1 | 2}>
-                <article className="group projet-card-shine projet-card-lift relative h-full bg-white rounded-lg border border-stone-200 overflow-hidden shadow-md hover:shadow-2xl hover:border-orange-200/60 transition-all duration-500">
+                <article className="group projet-card-shine projet-card-lift relative h-full bg-white rounded-lg border border-stone-200 overflow-hidden shadow-md hover:shadow-2xl hover:border-accent-200 transition-all duration-500">
                   {/* Bandeau accent type dashboard */}
-                  <div className="h-1.5 bg-gradient-to-r from-orange-500 to-amber-500" aria-hidden />
+                  <div className="h-1.5 bg-gradient-to-r from-accent-500 to-accent-400" aria-hidden />
                   <div className="aspect-[16/10] sm:aspect-[2/1] bg-stone-100 relative overflow-hidden rounded-t-lg">
                     <img
                       src={projet.image}
@@ -63,14 +65,14 @@ export default function Projets() {
                   </div>
                   <div className="p-5 sm:p-6 md:p-8">
                     <div className="flex items-start justify-between gap-3 mb-3">
-                      <Zap className="text-orange-500 flex-shrink-0 mt-1" size={22} />
+                      <Zap className="text-accent-500 flex-shrink-0 mt-1" size={22} />
                       <h3 className="font-bold text-stone-800 text-xl sm:text-2xl md:text-[1.4rem] leading-tight">{projet.nom}</h3>
                     </div>
-                    <p className="text-orange-500 text-sm sm:text-base font-semibold mb-4">{projet.description}</p>
+                    <p className="text-accent-500 text-sm sm:text-base font-semibold mb-4">{projet.description}</p>
                     <ul className="space-y-2 sm:space-y-2.5 mb-5 text-stone-600 text-sm sm:text-base">
                       {projet.details.slice(0, 3).map((detail, i) => (
                         <li key={i} className="flex items-start gap-2.5">
-                          <span className="text-orange-500 mt-1 font-bold">·</span>
+                          <span className="text-accent-500 mt-1 font-bold">·</span>
                           <span>{detail}</span>
                         </li>
                       ))}

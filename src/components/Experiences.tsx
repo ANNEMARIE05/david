@@ -2,6 +2,7 @@ import { Briefcase, Calendar } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 import { useInView } from '../hooks/useInView';
+import GeometricMotifs from './GeometricMotifs';
 
 interface Experience {
   titre: string;
@@ -14,23 +15,23 @@ interface Experience {
 
 function ExperienceCard({ exp, accentSide }: { exp: Experience; accentSide: 'left' | 'right' }) {
   return (
-    <div className="experience-card-parcours rounded-lg border border-stone-700/80 bg-pattern-dots-card backdrop-blur-sm p-4 sm:p-5 md:p-6 transition-all duration-300 overflow-hidden hover:border-orange-500/40 hover:shadow-[0_0_30px_-5px_rgba(249,115,22,0.15)] relative">
+    <div className="experience-card-parcours rounded-lg border border-stone-600/80 bg-stone-800/90 shadow-lg p-4 sm:p-5 md:p-6 transition-all duration-300 overflow-hidden hover:border-accent-500/50 hover:shadow-accent-500/10 hover:shadow-xl relative">
       {/* Barre d'accent côté timeline */}
       <div
-        className={`absolute top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-orange-400 experience-card-accent-parcours transition-all duration-300 ${accentSide === 'left' ? 'left-0 rounded-l-lg' : 'right-0 rounded-r-lg'}`}
+        className={`absolute top-0 bottom-0 w-1 bg-gradient-to-b from-accent-500 to-accent-400 experience-card-accent-parcours transition-all duration-300 ${accentSide === 'left' ? 'left-0 rounded-l-lg' : 'right-0 rounded-r-lg'}`}
       />
       <div className="flex flex-wrap items-start justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <div className="p-2 sm:p-2.5 rounded-lg bg-orange-500/20 text-orange-400 experience-icon-wrap-parcours transition-all duration-300 shrink-0">
+          <div className="p-2 sm:p-2.5 rounded-lg bg-accent-500/20 text-accent-400 experience-icon-wrap-parcours transition-all duration-300 shrink-0">
             <Briefcase size={20} className="sm:w-5 sm:h-5" strokeWidth={2} />
           </div>
           <div className="min-w-0">
             <h3 className="font-bold text-white text-base sm:text-lg">{exp.titre}</h3>
-            <p className="text-orange-400/90 font-medium text-sm">{exp.entreprise}</p>
+            <p className="text-accent-400 font-medium text-sm">{exp.entreprise}</p>
           </div>
         </div>
         <div className="flex items-center gap-1.5 sm:gap-2 text-stone-400 text-xs sm:text-sm shrink-0">
-          <Calendar size={14} className="text-orange-400/80 shrink-0" />
+          <Calendar size={14} className="text-accent-400 shrink-0" />
           <span>{exp.periode}</span>
         </div>
       </div>
@@ -40,7 +41,7 @@ function ExperienceCard({ exp, accentSide }: { exp: Experience; accentSide: 'lef
             key={i}
             className="text-stone-300 text-sm sm:text-base leading-relaxed flex items-start gap-2 experience-desc-item-parcours"
           >
-            <span className="text-orange-400 mt-1 shrink-0 experience-bullet-parcours font-bold">›</span>
+            <span className="text-accent-400 mt-1 shrink-0 experience-bullet-parcours font-bold">›</span>
             <span>{desc}</span>
           </li>
         ))}
@@ -50,7 +51,7 @@ function ExperienceCard({ exp, accentSide }: { exp: Experience; accentSide: 'lef
           {exp.technologies.map((tech, i) => (
             <span
               key={i}
-              className="experience-tag-parcours px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md border border-orange-500/40 text-orange-200/90 bg-orange-500/10 hover:bg-orange-500/20 hover:border-orange-400/60 transition-all duration-300"
+              className="experience-tag-parcours px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md border border-accent-500/40 text-accent-300 bg-accent-500/10 hover:bg-accent-500/20 hover:border-accent-400/50 transition-all duration-300"
             >
               {tech}
             </span>
@@ -70,32 +71,33 @@ export default function Experiences() {
     <section
       id="experiences"
       ref={sectionRef}
-      className={`py-10 sm:py-14 md:py-20 lg:py-28 relative overflow-hidden bg-stone-950 ${isInView ? 'in-view' : ''}`}
+      className={`py-10 sm:py-14 md:py-20 lg:py-28 relative overflow-hidden bg-stone-900 border-t border-stone-800 ${isInView ? 'in-view' : ''}`}
     >
       {/* Motifs de fond */}
-      <div className="absolute inset-0 bg-pattern-dots-dark opacity-80 pointer-events-none" aria-hidden />
-      <div className="absolute inset-0 bg-pattern-grid-dark opacity-50 pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 bg-pattern-dots-dark opacity-[0.08] pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 bg-pattern-grid-dark opacity-[0.06] pointer-events-none" aria-hidden />
+      <GeometricMotifs mode="absolute" variant="light" />
       {/* Accent lumineux discret */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-orange-400/8 rounded-full blur-3xl -translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-accent-400/8 rounded-full blur-3xl -translate-x-1/2 pointer-events-none" />
 
-      <div className="w-full px-4 sm:px-6 lg:px-10 relative">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10">
         <div className="max-w-4xl mx-auto">
           <AnimateOnScroll variant="fade-down">
             <div className="mb-8 sm:mb-12 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">
-                <span className="text-stone-200">{t('experiences.title')} </span>
-                <span className="text-orange-400">{t('experiences.titleHighlight')}</span>
+                <span className="text-white">{t('experiences.title')} </span>
+                <span className="text-accent-500">{t('experiences.titleHighlight')}</span>
               </h2>
-              <div className="h-1 w-16 sm:w-20 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full timeline-title-underline" />
+              <div className="h-1 w-16 sm:w-20 bg-gradient-to-r from-accent-500 to-accent-400 rounded-full timeline-title-underline" />
             </div>
           </AnimateOnScroll>
 
           <div className="relative">
             {/* Ligne de temps : à gauche sur mobile, au centre sur md+ */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-stone-700 rounded-full overflow-hidden md:left-1/2 md:-translate-x-px">
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-stone-600 rounded-full overflow-hidden md:left-1/2 md:-translate-x-px">
               <div
-                className="timeline-line-progress absolute inset-0 bg-gradient-to-b from-orange-500 via-orange-400 to-orange-500/60 rounded-full origin-top scale-y-0"
+                className="timeline-line-progress absolute inset-0 bg-gradient-to-b from-accent-500 via-accent-400 to-accent-500/60 rounded-full origin-top scale-y-0"
                 style={{ transformOrigin: 'top' }}
               />
             </div>
@@ -126,9 +128,9 @@ export default function Experiences() {
                           />
                         </div>
                       </div>
-                      {/* Point orange : gauche sur mobile, centre sur desktop */}
+                      {/* Point accent : gauche sur mobile, centre sur desktop */}
                       <div
-                        className="absolute left-6 top-6 sm:top-7 -translate-x-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-orange-500 shadow-lg shadow-orange-500/30 timeline-dot-expand z-10 ring-4 ring-stone-950 md:left-1/2"
+                        className="absolute left-6 top-6 sm:top-7 -translate-x-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-accent-500 shadow-md shadow-accent-500/30 timeline-dot-expand z-10 ring-4 ring-stone-900 md:left-1/2"
                         aria-hidden
                       />
                     </div>

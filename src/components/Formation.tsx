@@ -1,6 +1,7 @@
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
+import GeometricMotifs from './GeometricMotifs';
 
 const FORMATION_IMAGES = [
   'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80',
@@ -31,15 +32,16 @@ export default function Formation() {
   const interets = interestNames.map((nom, i) => ({ nom, image: INTEREST_IMAGES[i] ?? '' }));
 
   return (
-    <section id="formation" className="py-10 sm:py-14 md:py-20 lg:py-28 border-t border-stone-100 bg-stone-50/50">
-      <div className="w-full px-4 sm:px-6 lg:px-10">
+    <section id="formation" className="relative py-10 sm:py-14 md:py-20 lg:py-28 border-t border-stone-100 bg-white overflow-hidden">
+      <GeometricMotifs mode="absolute" />
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10">
         <div className="max-w-5xl mx-auto">
           <AnimateOnScroll>
             <div className="text-center mb-8 sm:mb-12 md:mb-16">
-              <span className="text-orange-500 text-xs sm:text-sm font-medium uppercase tracking-widest">{t('formation.pathway')}</span>
+              <span className="text-accent-500 text-xs sm:text-sm font-medium uppercase tracking-widest">{t('formation.pathway')}</span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-1 sm:mt-2">
                 <span className="text-stone-800">{t('formation.title')} </span>
-                <span className="text-orange-500">& {t('formation.titleHighlight')}</span>
+                <span className="text-accent-500">& {t('formation.titleHighlight')}</span>
               </h2>
             </div>
           </AnimateOnScroll>
@@ -70,7 +72,7 @@ export default function Formation() {
                     </div>
                   </div>
                   <div className={`md:w-[55%] ${index % 2 === 1 ? 'md:text-right md:pr-12' : 'md:pl-4'}`}>
-                    <div className="inline-flex items-center gap-2 text-orange-600 mb-2 sm:mb-3">
+                    <div className="inline-flex items-center gap-2 text-accent-600 mb-2 sm:mb-3">
                       <GraduationCap size={18} />
                       <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-stone-700">{formation.periode}</span>
                     </div>
@@ -82,11 +84,11 @@ export default function Formation() {
                     )}
                     <div className="flex flex-wrap gap-2 sm:gap-4 text-stone-600 text-xs sm:text-sm">
                       <span className="flex items-center gap-1.5">
-                        <Calendar size={16} className="text-orange-500 flex-shrink-0" />
+                        <Calendar size={16} className="text-accent-500 flex-shrink-0" />
                         {formation.periode}
                       </span>
                       <span className="flex items-center gap-1.5">
-                        <MapPin size={16} className="text-orange-500 flex-shrink-0" />
+                        <MapPin size={16} className="text-accent-500 flex-shrink-0" />
                         {formation.lieu}
                       </span>
                     </div>
@@ -101,7 +103,7 @@ export default function Formation() {
             <div className="mt-10 sm:mt-14 md:mt-20 pt-8 sm:pt-12 md:pt-16 border-t border-stone-200">
               <AnimateOnScroll variant="slide-right">
                 <h3 className="text-lg sm:text-xl font-bold text-stone-800 mb-1 sm:mb-2">
-                  {t('formation.interestsTitle')}<span className="text-orange-500">{t('formation.interestsTitleHighlight')}</span>
+                  {t('formation.interestsTitle')}<span className="text-accent-500">{t('formation.interestsTitleHighlight')}</span>
                 </h3>
               </AnimateOnScroll>
               <AnimateOnScroll variant="slide-left" delay={1}>
@@ -113,7 +115,7 @@ export default function Formation() {
                 {interets.map((interet, i) => (
                   <AnimateOnScroll key={interet.nom} variant="zoom-in" delay={(i % 4) as 0 | 1 | 2 | 3}>
                     <div
-                      className="group formation-card-hover relative aspect-[3/4] overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm hover:border-orange-200"
+                      className="group formation-card-hover relative aspect-[3/4] overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm hover:border-accent-200"
                     >
                     <div className="absolute inset-0 overflow-hidden rounded-lg">
                     <img

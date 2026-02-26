@@ -217,7 +217,7 @@ button:focus-visible {
   left: 50%;
   width: min(200px, 50vw);
   height: 2px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 2px;
   overflow: hidden;
   transform: translateX(-50%);
@@ -255,18 +255,10 @@ button:focus-visible {
   transition: opacity 0.5s ease, transform 0.6s ease;
 }
 
-/* ========== Fond (motif figé, confort lecture) ========== */
+/* ========== Fond blanc ========== */
 .bg-mesh-static,
 .bg-animated-mesh {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 247, 237, 0.6) 25%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 237, 213, 0.4) 75%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background-size: 100% 100%;
+  background: #ffffff;
 }
 
 /* ========== Motifs chic animés ========== */
@@ -487,14 +479,17 @@ button:focus-visible {
   transition: box-shadow 0.3s ease;
 }
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0 24px rgba(249, 115, 22, 0.35);
 }
 .btn-pulse {
   animation: btn-pulse 2s ease-in-out infinite;
 }
 @keyframes btn-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.45); }
   50% { box-shadow: 0 0 0 12px rgba(249, 115, 22, 0); }
+}
+.hover-glow:hover {
+  box-shadow: 0 0 24px rgba(249, 115, 22, 0.35);
 }
 .animate-float-slow {
   animation: float 6s ease-in-out infinite;
@@ -624,7 +619,7 @@ button:focus-visible {
 }
 .experience-card-parcours:hover .experience-bullet-parcours {
   transform: translateX(3px);
-  color: rgb(251, 146, 60);
+  color: rgb(114, 174, 230);
 }
 
 .experience-tag-parcours {

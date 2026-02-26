@@ -38,8 +38,8 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
       }`}
       aria-hidden="true"
     >
-      {/* Fond dégradé chic */}
-      <div className="absolute inset-0 bg-gradient-to-br from-stone-950 via-stone-900 to-stone-950" />
+      {/* Fond clair sobre type WordPress */}
+      <div className="absolute inset-0 bg-white" />
       {/* Légère texture */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -58,7 +58,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
 
       {/* Contenu central */}
       <div className="relative z-10 flex flex-col items-center">
-        <h1 className="splash-title flex font-light tracking-[0.4em] text-stone-100">
+        <h1 className="splash-title flex font-light tracking-[0.4em] text-stone-800">
           {LETTERS.map((letter, i) => (
             <span
               key={letter + i}
@@ -75,7 +75,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
           ))}
         </h1>
         <p
-          className="mt-4 text-[10px] uppercase tracking-[0.5em] text-amber-500/80"
+          className="mt-4 text-[10px] uppercase tracking-[0.5em] text-accent-500"
           style={{
             opacity: visibleLetters >= LETTERS.length ? 1 : 0,
             transition: 'opacity 0.6s ease 0.3s',

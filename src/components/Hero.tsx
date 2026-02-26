@@ -2,6 +2,7 @@ import { ChevronDown, Briefcase, Zap } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCountUp } from '../hooks/useCountUp';
+import GeometricMotifs from './GeometricMotifs';
 
 const ALEXANDRE = 'ALEXANDRE';
 const HERO_IMAGE_URL =
@@ -36,11 +37,9 @@ export default function Hero({ scrollY = 0 }: HeroProps) {
 
   return (
     <section id="accueil" className="relative min-h-screen flex items-center pt-6 sm:pt-8 bg-white overflow-hidden">
-      {/* Fond gradient et motifs figés (confort lecture) */}
-      <div className="absolute inset-0 bg-mesh-static opacity-60 pointer-events-none" aria-hidden />
-      <div className="absolute inset-0 bg-pattern-dots opacity-70 pointer-events-none" aria-hidden />
-      <div className="absolute inset-0 bg-pattern-grid opacity-50 pointer-events-none" aria-hidden />
-      <div className="w-full px-4 sm:px-6 lg:px-10 py-10 sm:py-14 md:py-16 lg:py-20">
+      <GeometricMotifs mode="absolute" />
+      {/* Fond blanc */}
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 py-10 sm:py-14 md:py-16 lg:py-20">
         <div className="flex flex-col lg:flex-row items-start gap-8 sm:gap-10 lg:gap-16 max-w-6xl mx-auto">
           {/* Texte à gauche (avant l'image) */}
           <div className="flex-1 max-w-xl order-1 lg:order-1 min-w-0">
@@ -49,12 +48,12 @@ export default function Hero({ scrollY = 0 }: HeroProps) {
             <div className="mb-2 sm:mb-4 overflow-hidden min-h-[3.5rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[5.5rem]">
               <h1 className="text-[28px] sm:text-[35px] md:text-[47px] lg:text-[59px] font-bold text-stone-800 leading-tight">
                 <span className="block min-h-[1.15em]">N&apos;GUESSAN AMSAH</span>
-                <span className="block text-orange-500 min-h-[1.15em] mt-2 sm:mt-3 md:mt-4">
+                <span className="block text-accent-500 min-h-[1.15em] mt-2 sm:mt-3 md:mt-4 font-semibold">
                   DAVID-
                   {alexandre.split('').map((char, i) => (
                     <span key={i} className="typewriter-letter">{char}</span>
                   ))}
-                  <span className="inline-block w-0.5 h-[0.9em] bg-orange-500 align-middle animate-blink-cursor ml-0.5" />
+                  <span className="inline-block w-0.5 h-[0.9em] bg-accent-500 align-middle animate-blink-cursor ml-0.5" />
                 </span>
               </h1>
             </div>
@@ -67,8 +66,8 @@ export default function Hero({ scrollY = 0 }: HeroProps) {
 
             <div className="flex flex-wrap sm:flex-nowrap gap-4 sm:gap-6 mb-5 sm:mb-8">
               <div className="flex items-center gap-1.5 sm:gap-2 hover-scale transition-transform duration-300" style={{ animation: 'slideUp 0.6s ease-out 0.5s both' }}>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-orange-100 flex items-center justify-center animate-float-slow">
-                  <Briefcase className="text-orange-500 animate-icon-move animate-icon-glow" size={18} />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent-100 flex items-center justify-center animate-float-slow">
+                  <Briefcase className="text-accent-500 animate-icon-move animate-icon-glow" size={18} />
                 </div>
                 <div>
                   <span className="block text-xl sm:text-2xl font-bold text-stone-800">{countYears}+</span>
@@ -76,8 +75,8 @@ export default function Hero({ scrollY = 0 }: HeroProps) {
                 </div>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 hover-scale transition-transform duration-300" style={{ animation: 'slideUp 0.6s ease-out 0.6s both' }}>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-orange-100 flex items-center justify-center animate-float-slow" style={{ animationDelay: '0.5s' }}>
-                  <Zap className="text-orange-500 animate-icon-move animate-icon-glow" size={18} />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent-100 flex items-center justify-center animate-float-slow" style={{ animationDelay: '0.5s' }}>
+                  <Zap className="text-accent-500 animate-icon-move animate-icon-glow" size={18} />
                 </div>
                 <div>
                   <span className="block text-xl sm:text-2xl font-bold text-stone-800">{countProjets}+</span>
@@ -88,7 +87,7 @@ export default function Hero({ scrollY = 0 }: HeroProps) {
 
             <a
               href="#projets"
-              className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 bg-orange-500 text-white text-xs sm:text-sm font-medium hover:bg-orange-600 hover-lift hover-glow transition-all rounded btn-pulse"
+              className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 bg-accent-500 text-white text-xs sm:text-sm font-semibold hover:bg-accent-600 hover-lift hover-glow transition-all rounded-lg btn-pulse shadow-lg shadow-accent-500/25"
               style={{ animation: 'slideUp 0.6s ease-out 0.75s both' }}
             >
               {t('hero.cta')}
@@ -121,13 +120,13 @@ export default function Hero({ scrollY = 0 }: HeroProps) {
               </div>
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full opacity-80" style={{ transform: `translateY(${scrollY * 0.08}px)` }} aria-hidden>
-              <div className="w-full h-full bg-orange-100 rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
+              <div className="w-full h-full bg-accent-100 rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
         <ChevronDown size={28} className="text-stone-400 animate-bounce" />
       </div>
     </section>

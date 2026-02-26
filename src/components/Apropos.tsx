@@ -2,6 +2,7 @@ import { Mail, Phone, Linkedin, CalendarDays, Briefcase, FolderKanban } from 'lu
 import { useTranslation } from 'react-i18next';
 import AnimateOnScroll from './AnimateOnScroll';
 import { useInView } from '../hooks/useInView';
+import GeometricMotifs from './GeometricMotifs';
 import { useCountUp } from '../hooks/useCountUp';
 
 export default function Apropos() {
@@ -20,36 +21,37 @@ export default function Apropos() {
   return (
     <section className="relative py-12 sm:py-16 md:py-24 lg:py-28 border-t border-stone-100 overflow-hidden">
       {/* Fond discret pour la section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-orange-50/30 to-white pointer-events-none" aria-hidden />
-      <div className="absolute inset-0 bg-pattern-dots opacity-50 pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 bg-white pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 bg-pattern-dots opacity-[0.06] pointer-events-none" aria-hidden />
+      <GeometricMotifs mode="absolute" />
 
-      <div className="relative w-full px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10">
         <div className="max-w-6xl mx-auto">
           {/* Cartes statistiques améliorées */}
           <div ref={statsRef} className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-12 md:mb-16">
             <AnimateOnScroll variant="scale-up">
-              <div className="group relative p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/80 shadow-sm hover:shadow-lg hover:border-orange-200 transition-all duration-300 cursor-default overflow-hidden">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-orange-100/50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden />
+              <div className="group relative p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/80 shadow-sm hover:shadow-lg hover:border-accent-200 transition-all duration-300 cursor-default overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-accent-100/50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden />
                 <div className="relative flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
-                    <Briefcase className="text-orange-500" size={22} />
+                  <div className="w-11 h-11 rounded-xl bg-accent-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent-500/20 transition-colors">
+                    <Briefcase className="text-accent-500" size={22} />
                   </div>
                   <div>
-                    <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 tabular-nums">{countExp}+</span>
+                    <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-accent-500 tabular-nums">{countExp}+</span>
                     <span className="text-stone-600 text-xs sm:text-sm font-medium">{t('about.yearsExp')}</span>
                   </div>
                 </div>
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll variant="scale-up" delay={1}>
-              <div className="group relative p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/80 shadow-sm hover:shadow-lg hover:border-orange-200 transition-all duration-300 cursor-default overflow-hidden">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-orange-100/50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden />
+              <div className="group relative p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/80 shadow-sm hover:shadow-lg hover:border-accent-200 transition-all duration-300 cursor-default overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-accent-100/50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden />
                 <div className="relative flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
-                    <FolderKanban className="text-orange-500" size={22} />
+                  <div className="w-11 h-11 rounded-xl bg-accent-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent-500/20 transition-colors">
+                    <FolderKanban className="text-accent-500" size={22} />
                   </div>
                   <div>
-                    <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 tabular-nums">{countProjets}+</span>
+                    <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-accent-500 tabular-nums">{countProjets}+</span>
                     <span className="text-stone-600 text-xs sm:text-sm font-medium">{t('about.projectsLed')}</span>
                   </div>
                 </div>
@@ -67,9 +69,9 @@ export default function Apropos() {
                       href={href}
                       target={external ? '_blank' : undefined}
                       rel={external ? 'noopener noreferrer' : undefined}
-                      className="flex items-center gap-3 sm:gap-4 rounded-xl p-3 sm:p-4 -m-2 transition-all hover:bg-white/80 hover:shadow-md hover:border-orange-100 border border-transparent"
+                      className="flex items-center gap-3 sm:gap-4 rounded-xl p-3 sm:p-4 -m-2 transition-all hover:bg-white/80 hover:shadow-md hover:border-accent-100 border border-transparent"
                     >
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-orange-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-accent-500 flex items-center justify-center flex-shrink-0 shadow-sm">
                         <Icon className="text-white" size={20} />
                       </div>
                       <div className="min-w-0 flex-1">
@@ -79,7 +81,7 @@ export default function Apropos() {
                     </a>
                   ) : (
                     <div className="flex items-center gap-3 sm:gap-4 rounded-xl p-3 sm:p-4 -m-2">
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-orange-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-accent-500 flex items-center justify-center flex-shrink-0 shadow-sm">
                         <Icon className="text-white" size={20} />
                       </div>
                       <div className="min-w-0">
@@ -97,7 +99,7 @@ export default function Apropos() {
               <AnimateOnScroll variant="flip">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
                   <span className="text-stone-800">{t('about.title')} </span>
-                  <span className="text-orange-500">{t('about.titleHighlight')}</span>
+                  <span className="text-accent-500">{t('about.titleHighlight')}</span>
                 </h2>
               </AnimateOnScroll>
               <div className="space-y-3 sm:space-y-4 text-stone-600 leading-relaxed text-sm sm:text-base">
@@ -121,7 +123,7 @@ export default function Apropos() {
                 {['Product Management', 'e-Commerce', 'Digital Marketing', 'Monétique'].map((spec, i) => (
                   <AnimateOnScroll key={spec} variant="zoom-in" delay={i as 0 | 1 | 2}>
                     <span
-                      className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-stone-100 text-stone-700 text-xs sm:text-sm font-medium rounded-full border border-stone-200/80 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 cursor-default"
+                      className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-stone-100 text-stone-700 text-xs sm:text-sm font-medium rounded-full border border-stone-200/80 hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all duration-300 cursor-default"
                     >
                       {spec}
                     </span>

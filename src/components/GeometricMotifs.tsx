@@ -1,11 +1,14 @@
 /**
- * Motifs géométriques inspirés du style demi-ton : zigzag, points, cercles,
- * arcs, plus, carrés, losanges — en noir et vert lime, dispersés et animés.
+ * Motifs géométriques : zigzag, points, cercles, arcs, plus —
+ * en gris et orange (couleur principale).
  */
 import { useMemo } from 'react';
 
-const LIME = '#a3e635';
-const BLACK = '#1c1917';
+const ACCENT = '#f97316'; /* accent-500 - orange */
+const DARK = '#1e293b';   /* slate-800 */
+/* Pour fonds sombres (sections noires) */
+const LIGHT = '#94a3b8';   /* stone-400 */
+const ACCENT_LIGHT = '#fb923c'; /* accent-400 */
 
 type MotifType =
   | 'zigzag'
@@ -16,9 +19,9 @@ type MotifType =
   | 'circle-hatched-black'
   | 'circle-hatched-lime'
   | 'arc-black'
-  | 'arc-lime'
+  | 'arc-accent'
   | 'plus-black'
-  | 'plus-lime'
+  | 'plus-accent'
   | 'rect-hatched'
   | 'cube-wireframe'
   | 'diamond-outline'
@@ -42,16 +45,16 @@ const MOTIFS: MotifDef[] = [
   { type: 'circle-hatched-black', left: '78%', top: '45%', size: 36, animation: 'motif-float', delay: 0, duration: 8 },
   { type: 'circle-hatched-lime', left: '8%', top: '68%', size: 30, animation: 'motif-float', delay: 1.5, duration: 8 },
   { type: 'arc-black', left: '72%', top: '15%', size: 26, animation: 'motif-float', delay: 0.3, duration: 6 },
-  { type: 'arc-lime', left: '22%', top: '82%', size: 22, animation: 'motif-float', delay: 1, duration: 7 },
+  { type: 'arc-accent', left: '22%', top: '82%', size: 22, animation: 'motif-float', delay: 1, duration: 7 },
   { type: 'plus-black', left: '45%', top: '18%', size: 20, animation: 'motif-float', delay: 2, duration: 7 },
-  { type: 'plus-lime', left: '55%', top: '75%', size: 18, animation: 'motif-float', delay: 0.5, duration: 9 },
+  { type: 'plus-accent', left: '55%', top: '75%', size: 18, animation: 'motif-float', delay: 0.5, duration: 9 },
   { type: 'rect-hatched', left: '35%', top: '42%', size: 28, animation: 'motif-float', delay: 1.2, duration: 6 },
   { type: 'cube-wireframe', left: '85%', top: '62%', size: 34, animation: 'motif-float', delay: 0.8, duration: 8 },
   { type: 'diamond-outline', left: '12%', top: '52%', size: 24, animation: 'motif-float', delay: 0, duration: 6 },
   { type: 'diamond-filled', left: '68%', top: '88%', size: 14, animation: 'motif-float', delay: 1.8, duration: 5 },
   { type: 'zigzag', left: '50%', top: '55%', size: 20, animation: 'motif-float', delay: 0.2, duration: 7 },
   { type: 'dots-grid', left: '28%', top: '28%', size: 40, animation: 'motif-float', delay: 1, duration: 7 },
-  { type: 'arc-lime', left: '95%', top: '48%', size: 20, animation: 'motif-float', delay: 2.5, duration: 6 },
+  { type: 'arc-accent', left: '95%', top: '48%', size: 20, animation: 'motif-float', delay: 2.5, duration: 6 },
   { type: 'plus-black', left: '5%', top: '92%', size: 16, animation: 'motif-float', delay: 0, duration: 8 },
   { type: 'circle-outline', left: '62%', top: '32%', size: 18, animation: 'motif-float', delay: 1, duration: 5 },
   { type: 'diamond-outline', left: '38%', top: '88%', size: 20, animation: 'motif-float', delay: 0.6, duration: 7 },
@@ -187,7 +190,12 @@ function DiamondFilled({ size, color }: { size: number; color: string }) {
   );
 }
 
-function MotifShape({ def }: { def: MotifDef }) {
+interface MotifColors {
+  dark: string;
+  accent: string;
+}
+
+function MotifShape({ def, colors }: { def: MotifDef; colors: MotifColors }) {
   const duration = def.duration ?? 6;
   const delay = def.delay ?? 0;
   const style = useMemo(
@@ -196,7 +204,6 @@ function MotifShape({ def }: { def: MotifDef }) {
       top: def.top,
       width: def.size,
       height: def.size,
-      // Animation complète en inline pour garantir durée/délai (évite que le shorthand CSS écrase)
       animation: `motif-float ${duration}s ease-in-out ${delay}s infinite`,
       willChange: 'transform' as const,
     }),
@@ -208,49 +215,49 @@ function MotifShape({ def }: { def: MotifDef }) {
 
   switch (def.type) {
     case 'zigzag':
-      content = <Zigzag {...common} color={BLACK} />;
+      content = <Zigzag {...common} color={colors.dark} />;
       break;
     case 'dots-line':
-      content = <DotsLine {...common} color={BLACK} />;
+      content = <DotsLine {...common} color={colors.dark} />;
       break;
     case 'dots-grid':
-      content = <DotsGrid {...common} color={BLACK} />;
+      content = <DotsGrid {...common} color={colors.dark} />;
       break;
     case 'circle-outline':
-      content = <CircleOutline {...common} color={BLACK} />;
+      content = <CircleOutline {...common} color={colors.dark} />;
       break;
     case 'circle-filled':
-      content = <CircleFilled {...common} color={BLACK} />;
+      content = <CircleFilled {...common} color={colors.dark} />;
       break;
     case 'circle-hatched-black':
-      content = <CircleHatched {...common} color={BLACK} />;
+      content = <CircleHatched {...common} color={colors.dark} />;
       break;
     case 'circle-hatched-lime':
-      content = <CircleHatched {...common} color={LIME} />;
+      content = <CircleHatched {...common} color={colors.accent} />;
       break;
     case 'arc-black':
-      content = <Arc {...common} color={BLACK} />;
+      content = <Arc {...common} color={colors.dark} />;
       break;
-    case 'arc-lime':
-      content = <Arc {...common} color={LIME} />;
+    case 'arc-accent':
+      content = <Arc {...common} color={colors.accent} />;
       break;
     case 'plus-black':
-      content = <Plus {...common} color={BLACK} />;
+      content = <Plus {...common} color={colors.dark} />;
       break;
-    case 'plus-lime':
-      content = <Plus {...common} color={LIME} />;
+    case 'plus-accent':
+      content = <Plus {...common} color={colors.accent} />;
       break;
     case 'rect-hatched':
-      content = <RectHatched {...common} color={BLACK} />;
+      content = <RectHatched {...common} color={colors.dark} />;
       break;
     case 'cube-wireframe':
-      content = <CubeWireframe {...common} color={LIME} />;
+      content = <CubeWireframe {...common} color={colors.accent} />;
       break;
     case 'diamond-outline':
-      content = <DiamondOutline {...common} color={BLACK} />;
+      content = <DiamondOutline {...common} color={colors.dark} />;
       break;
     case 'diamond-filled':
-      content = <DiamondFilled {...common} color={BLACK} />;
+      content = <DiamondFilled {...common} color={colors.dark} />;
       break;
     default:
       return null;
@@ -267,14 +274,27 @@ function MotifShape({ def }: { def: MotifDef }) {
   );
 }
 
-export default function GeometricMotifs() {
+interface GeometricMotifsProps {
+  /** 'fixed' = couche globale (viewport), 'absolute' = à l'intérieur de la section parente */
+  mode?: 'fixed' | 'absolute';
+  /** 'light' pour sections à fond sombre (Parcours Pro, Footer) */
+  variant?: 'default' | 'light';
+}
+
+const COLORS_DEFAULT: MotifColors = { dark: DARK, accent: ACCENT };
+const COLORS_LIGHT: MotifColors = { dark: LIGHT, accent: ACCENT_LIGHT };
+
+export default function GeometricMotifs({ mode = 'fixed', variant = 'default' }: GeometricMotifsProps) {
+  const colors = variant === 'light' ? COLORS_LIGHT : COLORS_DEFAULT;
+  const containerClass =
+    mode === 'absolute'
+      ? 'absolute inset-0 overflow-hidden pointer-events-none z-[1]'
+      : 'fixed inset-0 overflow-hidden pointer-events-none z-0';
+
   return (
-    <div
-      className="fixed inset-0 overflow-hidden pointer-events-none z-0"
-      aria-hidden
-    >
+    <div className={containerClass} aria-hidden>
       {MOTIFS.map((def, i) => (
-        <MotifShape key={`${def.type}-${def.left}-${def.top}-${i}`} def={def} />
+        <MotifShape key={`${def.type}-${def.left}-${def.top}-${i}`} def={def} colors={colors} />
       ))}
     </div>
   );

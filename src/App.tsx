@@ -10,7 +10,6 @@ import Formation from './components/Formation';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BoutonWhatsApp from './components/BoutonWhatsApp';
-import GeometricMotifs from './components/GeometricMotifs';
 
 const SECTION_IDS = ['accueil', 'experiences', 'projets', 'competences', 'formation', 'contact'];
 
@@ -57,8 +56,7 @@ function App() {
       <div className="min-h-screen bg-white text-stone-800 bg-mesh-static relative">
         <Header scrollY={scrollY} activeSection={activeSection} isVisible={!showSplash} />
         <div className="overflow-x-hidden relative">
-          <div className="absolute inset-0 bg-pattern-dots opacity-40 pointer-events-none" aria-hidden />
-          <GeometricMotifs />
+          <div className="absolute inset-0 bg-pattern-dots opacity-[0.06] pointer-events-none" aria-hidden />
           <Hero scrollY={scrollY} />
           <Apropos />
           <Experiences />
